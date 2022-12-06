@@ -1,0 +1,1324 @@
+{
+	"info": {
+		"_postman_id": "af460727-d83d-4e20-97a2-cd917462d375",
+		"name": "Practica 5 - eCommerce",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24345932"
+	},
+	"item": [
+		{
+			"name": "ObtenerCategoria2020yPrecio",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Validar que el codigo de respuesta sea igual a 200\", function(){\r",
+							"    pm.expect(pm.response.code).to.be.eql(200)\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Validar que el tiempo de respuesta es menor a 1 seg\", function(){\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(1000)\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Validar que el body no viene vacio\", function(){\r",
+							"    pm.expect(pm.response.body).not.to.be.null;\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Validar que el body response contenga un filtro\", function(){\r",
+							"    pm.expect(pm.response.text()).to.include('\"/anuncios/mexico/autos-y-camionetas?precio=-60000\"')\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json, text/plain, */*",
+						"type": "text"
+					},
+					{
+						"key": "Origin",
+						"value": "https://www.segundamano.mx",
+						"type": "text"
+					},
+					{
+						"key": "Referer",
+						"value": "https://www.segundamano.mx",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"filters\": [\r\n        {\r\n            \"price\": \"-60000\",\r\n            \"category\": \"2020\"\r\n        },\r\n        {\r\n            \"price\": \"60000-80000\",\r\n            \"category\": \"2020\"\r\n        },\r\n        {\r\n            \"price\": \"80000-100000\",\r\n            \"category\": \"2020\"\r\n        },\r\n        {\r\n            \"price\": \"100000-150000\",\r\n            \"category\": \"2020\"\r\n        },\r\n        {\r\n            \"price\": \"150000-\",\r\n            \"category\": \"2020\"\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{url_base}}/urls/v1/public/ad-listing?lang=es",
+					"protocol": "https",
+					"host": [
+						"{{url_base}}"
+					],
+					"path": [
+						"urls",
+						"v1",
+						"public",
+						"ad-listing"
+					],
+					"query": [
+						{
+							"key": "lang",
+							"value": "es"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ObtenerListadoAnuncios",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Validar que el codigo de respuesta sea igual a 200\", function(){\r",
+							"    pm.expect(pm.response.code).to.be.eql(200)\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Validar que el tiempo de respuesta es menor a 1 seg\", function(){\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(1000)\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Validar que el body no viene vacio\", function(){\r",
+							"    pm.expect(pm.response.body).not.to.be.null;\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Validar que el body response contenga los campos de un anuncio\", function(){\r",
+							"    pm.expect(pm.response.text()).to.include('list_id')\r",
+							"});\r",
+							"\r",
+							"var subject = pm.response.json().data.items[0].subject;\r",
+							"pm.test(\"Validar que el campo subject regresa un dato tipo STRING\", function(){\r",
+							"    pm.expect(subject).to.be.a(\"String\")\r",
+							"});\r",
+							"\r",
+							"/*pm.test(\"Validar que el campo subject regresa un dato tipo STRING\", function(){\r",
+							"    console.log(\"Response body: \",typeof (pm.response.json().data.items[0].subject))\r",
+							"    var subject = pm.response.json().data.items[0].subject;\r",
+							"    pm.expect(subject).to.be.a(\"String\")\r",
+							"});\r",
+							"*/\r",
+							"//console.log(\"Response body: \",typeof (pm.response.json().data.items[0].subject))\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://{{url_base}}/highlights/v1/public/highlights?prio=1&cat=2020&lim=1",
+					"protocol": "https",
+					"host": [
+						"{{url_base}}"
+					],
+					"path": [
+						"highlights",
+						"v1",
+						"public",
+						"highlights"
+					],
+					"query": [
+						{
+							"key": "prio",
+							"value": "1"
+						},
+						{
+							"key": "cat",
+							"value": "2020"
+						},
+						{
+							"key": "lim",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CrearUsuarioConVariablesDinamicas",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Validar que el codigo de respuesta sea igual a 401\", function(){\r",
+							"    pm.expect(pm.response.code).to.be.eql(401)\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Validar que el tiempo de respuesta es menor a 1 seg\", function(){\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(2000)\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Validar que el body no viene vacio\", function(){\r",
+							"    pm.expect(pm.response.body).not.to.be.null;\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Validar que el body response contenga account verification required\", function(){\r",
+							"    pm.expect(pm.response.text()).to.include('ACCOUNT_VERIFICATION_REQUIRED')   \r",
+							"});\r",
+							"\r",
+							"\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"var emailDinamico = pm.variables.replaceIn(\"{{$randomEmail}}\")\r",
+							"pm.environment.set(\"emailDinamico\", emailDinamico)\r",
+							"\r",
+							"var passwordDinamico = pm.variables.replaceIn(\"{{$randomPassword}}\")\r",
+							"pm.environment.set(\"passwordDinamico\",passwordDinamico)"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{passDinamico}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{emailDinamico}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic cHJ1ZWJhc19hcGkxOUBtYWlsaW5hdG9yLmNvbTphYmNkZTEyMzQ1",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"account\": {\r\n        \"email\": \"{{emailDinamico}}\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{url_base}}/nga/api/v1.1/private/accounts?lang=es",
+					"protocol": "https",
+					"host": [
+						"{{url_base}}"
+					],
+					"path": [
+						"nga",
+						"api",
+						"v1.1",
+						"private",
+						"accounts"
+					],
+					"query": [
+						{
+							"key": "lang",
+							"value": "es"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ObtenerInfoUsuario",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Validar que el codigo de respuesta sea igual a 200\", function(){\r",
+							"    pm.expect(pm.response.code).to.be.eql(200)\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Validar que el tiempo de respuesta es menor a 3 seg\", function(){\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(3000)\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Validar que el body no viene vacio\", function(){\r",
+							"    pm.expect(pm.response.body).not.to.be.null;\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Validar que el body response contenga los campos de un anuncio\", function(){\r",
+							"    pm.expect(pm.response.text()).to.include('access_token')\r",
+							"    pm.expect(pm.response.text()).to.include('account_id')\r",
+							"   \r",
+							"});\r",
+							"\r",
+							"pm.test(\"Validar que en el body se encuentra el usuario\", function(){\r",
+							"    let user = pm.environment.get('email')\r",
+							"    pm.expect(pm.response.text()).to.include(user)\r",
+							"})\r",
+							"\r",
+							"\r",
+							"pm.test(\"Validar que en el campo email contiene el email esperado\", function(){\r",
+							"    //console.log(pm.response.json().account.email)\r",
+							"    let userVariable = pm.environment.get('email')\r",
+							"    let userResponse = pm.response.json().account.email\r",
+							"    pm.expect(userResponse).to.be.eql(userVariable)\r",
+							"})\r",
+							"\r",
+							"pm.test(\"Validar que el campo subject regresa un dato tipo STRING\", function(){\r",
+							"    //console.log(\"Response body: \", typeof (pm.response.json().access_token))\r",
+							"    var tipoToken = pm.response.json().access_token;\r",
+							"    pm.expect(tipoToken).to.be.a(\"String\")\r",
+							"});\r",
+							"\r",
+							"pm.environment.set(\"account_id\", pm.response.json().account.account_id)\r",
+							"pm.environment.set(\"token\", pm.response.json().access_token)\r",
+							"pm.environment.set(\"uuid\", pm.response.json().account.uuid)\r",
+							"\r",
+							"\r",
+							"console.log(\"primer split: \", pm.response.json().account.account_id)\r",
+							"let accountID1 = pm.response.json().account.account_id;\r",
+							"//console.log(accountID1.split('/')[3])\r",
+							"pm.environment.set('account_id_solo', accountID1.split('/')[3])\r",
+							"//let response12 = pm.response.text().split(':')[1];\r",
+							"//console.log(\"segundo split:\", response12.split(',')[0])\r",
+							"//pm.environment.set('id', response12.split(',')[0]);\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{pass}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{email}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic cHJ1ZWJhc19hcGkxOUBtYWlsaW5hdG9yLmNvbTphYmNkZTEyMzQ1",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"account\": {\r\n        \"email\": \"{{email}}\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{url_base}}/nga/api/v1.1/private/accounts?lang=es",
+					"protocol": "https",
+					"host": [
+						"{{url_base}}"
+					],
+					"path": [
+						"nga",
+						"api",
+						"v1.1",
+						"private",
+						"accounts"
+					],
+					"query": [
+						{
+							"key": "lang",
+							"value": "es"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "EditarUsuario",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"var nombre = pm.variables.replaceIn(\"{{$randomFirstName}}\")\r",
+							"pm.environment.set(\"nombre\", nombre)\r",
+							"\r",
+							"var apellido = pm.variables.replaceIn(\"{{$randomLastName}}\") \r",
+							"pm.environment.set(\"apellido\", apellido)\r",
+							"\r",
+							"var telefono = pm.variables.replaceIn(\"{{$randomPhoneNumber}}\")\r",
+							"pm.environment.set(\"telefono\", telefono)\r",
+							"\r",
+							"var randomBoolean = pm.variables.replaceIn(\"{{$randomBoolean}}\")\r",
+							"pm.environment.set(\"randomBoolean\", randomBoolean)"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Validar que el codigo de respuesta sea igual a 200\", function(){\r",
+							"    pm.expect(pm.response.code).to.be.eql(200)\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Validar que el tiempo de respuesta es menor a 1 seg\", function(){\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(2000)\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Validar que el body no viene vacio\", function(){\r",
+							"    pm.expect(pm.response.body).not.to.be.null;\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Validar que el body response contenga account verification required\", function(){\r",
+							"    pm.expect(pm.response.text()).to.include('/private/accounts/12788461')   \r",
+							"});\r",
+							"\r",
+							"pm.test(\"Validar que el body response contenga los campos de un anuncio\", function(){\r",
+							"    pm.expect(pm.response.text()).to.include('uuid')\r",
+							"    pm.expect(pm.response.text()).to.include('account_id')\r",
+							"   \r",
+							"});\r",
+							"\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "tag:scmcoord.com,2013:api {{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"account\": {\r\n        \"name\": \"{{nombre}} {{apellido}}\",\r\n        \"phone\": \"{{telefono}}\",\r\n        \"professional\": {{randomBoolean}},\r\n        \"phone_hidden\": {{randomBoolean}}\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{url_base}}/nga/api/v1{{account_id}}?lang=es",
+					"protocol": "https",
+					"host": [
+						"{{url_base}}"
+					],
+					"path": [
+						"nga",
+						"api",
+						"v1{{account_id}}"
+					],
+					"query": [
+						{
+							"key": "lang",
+							"value": "es"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CrearUnAnuncio",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"var randomPrice = pm.variables.replaceIn(\"{{$randomInt}}\")\r",
+							"pm.environment.set(\"randomPrice\", randomPrice)\r",
+							"\r",
+							"var randomProductAdjective = pm.variables.replaceIn(\"{{$randomProductAdjective}}\")\r",
+							"pm.environment.set(\"randomProductAdjective\", randomProductAdjective)\r",
+							"\r",
+							"//pre-request\r",
+							"let getTokenRequest = {\r",
+							"    method: 'POST',\r",
+							"    url: 'https://webapi.segundamano.mx/nga/api/v1.1/private/accounts?lang=es',\r",
+							"    header: {\r",
+							"        Authorization: 'Basic cHJ1ZWJhc19hcGkxOUBtYWlsaW5hdG9yLmNvbTphYmNkZTEyMzQ1'\r",
+							"    }\r",
+							"};\r",
+							"\r",
+							"pm.sendRequest(getTokenRequest, function(err,response){\r",
+							"    console.log('Response pre-request: ' , response)\r",
+							"    pm.environment.set('token', response.json().access_token)\r",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.environment.set(\"ad_id\", pm.response.json().data.ad.ad_id)\r",
+							"\r",
+							"pm.test(\"Validar que el codigo de respuesta sea igual a 200\", function(){\r",
+							"    pm.expect(pm.response.code).to.be.eql(200)\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Validar que el tiempo de respuesta es menor a 4 seg\", function(){\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(4000)\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Validar que el body no viene vacio\", function(){\r",
+							"    pm.expect(pm.response.body).not.to.be.null;\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Validar que el body response contenga los campos de un anuncio\", function(){\r",
+							"    pm.expect(pm.response.text()).to.include('ad_id')\r",
+							"    pm.expect(pm.response.text()).to.include('subject')\r",
+							"   \r",
+							"});\r",
+							"\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{token}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{uuid}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "x-source",
+						"value": "PHOENIX_DESKTOP",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"images\": \"2225429927.jpg\",\r\n    \"category\": \"4100\",\r\n    \"subject\": \"{{randomProductAdjective}} compro monedas coleccionables\",\r\n    \"body\": \"compra, venta e intercambio de monedas coleccionables\",\r\n    \"is_new\": \"0\",\r\n    \"region\": \"16\",\r\n    \"municipality\": \"670\",\r\n    \"area\": \"48916\",\r\n    \"price\": \"{{randomPrice}}\",\r\n    \"phone_hidden\": \"true\",\r\n    \"show_phone\": \"false\",\r\n    \"contact_phone\": \"989-291-8709\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{url_base}}/v2/accounts/{{uuid}}/up",
+					"protocol": "https",
+					"host": [
+						"{{url_base}}"
+					],
+					"path": [
+						"v2",
+						"accounts",
+						"{{uuid}}",
+						"up"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "VerAnuncio",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var adID = pm.environment.get(\"ad_id\");",
+							"",
+							"pm.test(\"Validar el id del anuncio\", function(){",
+							"    pm.expect(pm.response.json().list_id).to.be.eql(adID)",
+							"})",
+							"",
+							"pm.test(\"Validar que el codigo de respuesta sea igual a 200\", function(){",
+							"    pm.expect(pm.response.code).to.be.eql(200)",
+							"});",
+							"",
+							"pm.test(\"Validar que el tiempo de respuesta es menor a 1 seg\", function(){",
+							"    pm.expect(pm.response.responseTime).to.be.below(1000)",
+							"});",
+							"",
+							"pm.test(\"Validar que el body no viene vacio\", function(){",
+							"    pm.expect(pm.response.body).not.to.be.null;",
+							"});",
+							"",
+							"",
+							"pm.test(\"Validar que el body response contenga los campos de un anuncio\", function(){",
+							"    pm.expect(pm.response.text()).to.include('list_id')",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://{{url_base}}/ad-stats/v1/public/accounts/{{account_id_solo}}/ads/{{ad_id}}",
+					"protocol": "https",
+					"host": [
+						"{{url_base}}"
+					],
+					"path": [
+						"ad-stats",
+						"v1",
+						"public",
+						"accounts",
+						"{{account_id_solo}}",
+						"ads",
+						"{{ad_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "EditarAnuncio",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.environment.set(\"ad_id\", pm.response.json().data.ad.ad_id)\r",
+							"\r",
+							"pm.test(\"Validar que el codigo de respuesta sea igual a 200\", function(){\r",
+							"    pm.expect(pm.response.code).to.be.eql(200)\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Validar que el tiempo de respuesta es menor a 4 seg\", function(){\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(4000)\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Validar que el body no viene vacio\", function(){\r",
+							"    pm.expect(pm.response.body).not.to.be.null;\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Validar que el body response contenga los campos de un anuncio\", function(){\r",
+							"    pm.expect(pm.response.text()).to.include('ad_id')\r",
+							"    pm.expect(pm.response.text()).to.include('subject')\r",
+							"   \r",
+							"});\r",
+							"\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{token}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{uuid}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "x-source",
+						"value": "PHOENIX_DESKTOP",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"category\": \"8143\",\r\n    \"subject\": \"Organizamos tu evento y mas\",\r\n    \"body\": \"trabajamos todo tipo de eventos, desde bautizos hasta bodas. Pregunte sin compromiso. Hacemos Cotizaciones\",\r\n    \"region\": \"5\",\r\n    \"municipality\": \"51\",\r\n    \"area\": \"36611\",\r\n    \"price\": \"20000\",\r\n    \"phone_hidden\": \"true\",\r\n    \"show_phone\": \"false\",\r\n    \"contact_phone\": \"76013183\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{url_base}}/v2/accounts/{{uuid}}/up/{{ad_id}}",
+					"protocol": "https",
+					"host": [
+						"{{url_base}}"
+					],
+					"path": [
+						"v2",
+						"accounts",
+						"{{uuid}}",
+						"up",
+						"{{ad_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "VerAnuncioDespuesDeEditarlo",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var adID = pm.environment.get(\"ad_id\");",
+							"",
+							"pm.test(\"Validar el id del anuncio\", function(){",
+							"    pm.expect(pm.response.json().list_id).to.be.eql(adID)",
+							"})",
+							"",
+							"",
+							"pm.test(\"Validar que el codigo de respuesta sea igual a 200\", function(){",
+							"    pm.expect(pm.response.code).to.be.eql(200)",
+							"});",
+							"",
+							"pm.test(\"Validar que el tiempo de respuesta es menor a 1 seg\", function(){",
+							"    pm.expect(pm.response.responseTime).to.be.below(1000)",
+							"});",
+							"",
+							"pm.test(\"Validar que el body no viene vacio\", function(){",
+							"    pm.expect(pm.response.body).not.to.be.null;",
+							"});",
+							"",
+							"",
+							"pm.test(\"Validar que el body response contenga los campos de un anuncio\", function(){",
+							"    pm.expect(pm.response.text()).to.include('list_id')",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://{{url_base}}/ad-stats/v1/public/accounts/{{account_id_solo}}/ads/{{ad_id}}",
+					"protocol": "https",
+					"host": [
+						"{{url_base}}"
+					],
+					"path": [
+						"ad-stats",
+						"v1",
+						"public",
+						"accounts",
+						"{{account_id_solo}}",
+						"ads",
+						"{{ad_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CrearDireccion",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.environment.set(\"address_id\", pm.response.json().addressID)",
+							"",
+							"pm.test(\"Validar que el codigo de respuesta sea igual a 201\", function(){",
+							"    pm.expect(pm.response.code).to.be.eql(201)",
+							"});",
+							"",
+							"pm.test(\"Validar que el tiempo de respuesta es menor a 1 seg\", function(){",
+							"    pm.expect(pm.response.responseTime).to.be.below(1000)",
+							"});",
+							"",
+							"console.log(pm.response.json().addressID)",
+							"",
+							"pm.test(\"Validar que el body no viene vacio\", function(){",
+							"    pm.expect(pm.response.body).not.to.be.null;",
+							"});",
+							"",
+							"",
+							"pm.test(\"Validar que el body response contenga los campos de un address\", function(){",
+							"    pm.expect(pm.response.text()).to.include('addressID')",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{token}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{uuid}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "contact",
+							"value": "{{nombre}} {{apellido}}",
+							"type": "text"
+						},
+						{
+							"key": "phone",
+							"value": "5566778899",
+							"type": "text"
+						},
+						{
+							"key": "rfc",
+							"value": "XAXX010101000",
+							"type": "text"
+						},
+						{
+							"key": "zipCode",
+							"value": "11011",
+							"type": "text"
+						},
+						{
+							"key": "exteriorInfo",
+							"value": "Morelia 4567",
+							"type": "text"
+						},
+						{
+							"key": "interiorinfo",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "region",
+							"value": "11",
+							"type": "text"
+						},
+						{
+							"key": "municipality",
+							"value": "300",
+							"type": "text"
+						},
+						{
+							"key": "area",
+							"value": "80028",
+							"type": "text"
+						},
+						{
+							"key": "alias",
+							"value": "Casa Prueba",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://{{url_base}}/addresses/v1/create",
+					"protocol": "https",
+					"host": [
+						"{{url_base}}"
+					],
+					"path": [
+						"addresses",
+						"v1",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ObtenerDireccionesDelUsuario",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Validar que el codigo de respuesta sea igual a 200\", function(){",
+							"    pm.expect(pm.response.code).to.be.eql(200)",
+							"});",
+							"",
+							"pm.test(\"Validar que el tiempo de respuesta es menor a 1 seg\", function(){",
+							"    pm.expect(pm.response.responseTime).to.be.below(1000)",
+							"});",
+							"",
+							"pm.test(\"Validar que el body no viene vacio\", function(){",
+							"    pm.expect(pm.response.body).not.to.be.null;",
+							"});",
+							"",
+							"pm.test(\"Validar que el body response contenga el address id de un address\", function(){",
+							"    let address = pm.environment.get('address_id')",
+							"    pm.expect(pm.response.text()).to.include(address)",
+							" ",
+							"});",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{token}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{uuid}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://{{url_base}}/addresses/v1/get",
+					"protocol": "https",
+					"host": [
+						"{{url_base}}"
+					],
+					"path": [
+						"addresses",
+						"v1",
+						"get"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "EditarDireccion",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"",
+							"var nombre = pm.variables.replaceIn(\"{{$randomFirstName}}\")",
+							"pm.environment.set(\"nombre\", nombre)",
+							"",
+							"var apellido = pm.variables.replaceIn(\"{{$randomLastName}}\") ",
+							"pm.environment.set(\"apellido\", apellido)",
+							"",
+							"",
+							"var telefono = pm.variables.replaceIn(\"{{$randomPhoneNumber}}\")",
+							"pm.environment.set(\"telefono\", telefono)"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Validar que el codigo de respuesta sea igual a 200\", function(){",
+							"    pm.expect(pm.response.code).to.be.eql(200)",
+							"});",
+							"",
+							"pm.test(\"Validar que el tiempo de respuesta es menor a 1 seg\", function(){",
+							"    pm.expect(pm.response.responseTime).to.be.below(1000)",
+							"});",
+							"",
+							"pm.test(\"Validar que el body no viene vacio\", function(){",
+							"    pm.expect(pm.response.body).not.to.be.null;",
+							"});",
+							"",
+							"pm.test(\"Validar que el body response contenga el address id de un address\", function(){",
+							"    let address = pm.environment.get('address_id')",
+							"    pm.expect(pm.response.text()).to.include(address)",
+							"});",
+							"",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{token}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{uuid}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "tag:scmcoord.com,2013:api {{token}}",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "contact",
+							"value": "{{nombre}} {{apellido}}",
+							"type": "text"
+						},
+						{
+							"key": "phone",
+							"value": "1122334455",
+							"type": "text"
+						},
+						{
+							"key": "rfc",
+							"value": "XAXX010101000",
+							"type": "text"
+						},
+						{
+							"key": "zipCode",
+							"value": "80028",
+							"type": "text"
+						},
+						{
+							"key": "exteriorInfo",
+							"value": "868",
+							"type": "text"
+						},
+						{
+							"key": "interiorInfo",
+							"value": "1A",
+							"type": "text"
+						},
+						{
+							"key": "region",
+							"value": "45",
+							"type": "text"
+						},
+						{
+							"key": "municipality",
+							"value": "12",
+							"type": "text"
+						},
+						{
+							"key": "area",
+							"value": "33",
+							"type": "text"
+						},
+						{
+							"key": "alias",
+							"value": "Updated Address",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://{{url_base}}/addresses/v1/modify/{{address_id}}",
+					"protocol": "https",
+					"host": [
+						"{{url_base}}"
+					],
+					"path": [
+						"addresses",
+						"v1",
+						"modify",
+						"{{address_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "EliminarDireccion",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Validar que el codigo de respuesta sea igual a 200\", function(){",
+							"    pm.expect(pm.response.code).to.be.eql(200)",
+							"});",
+							"",
+							"pm.test(\"Validar que el tiempo de respuesta es menor a 1 seg\", function(){",
+							"    pm.expect(pm.response.responseTime).to.be.below(1000)",
+							"});",
+							"",
+							"pm.test(\"Validar que el body no viene vacio\", function(){",
+							"    pm.expect(pm.response.body).not.to.be.null;",
+							"});",
+							"",
+							"pm.test(\"Validar que el body response contenga el address id de un address\", function(){",
+							"    let address = pm.environment.get('address_id')",
+							"    pm.expect(pm.response.text()).to.include(address)",
+							"});",
+							"",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{token}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{uuid}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://{{url_base}}/addresses/v1/delete/{{address_id}}",
+					"protocol": "https",
+					"host": [
+						"{{url_base}}"
+					],
+					"path": [
+						"addresses",
+						"v1",
+						"delete",
+						"{{address_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "BorrarAnuncio",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Validar que el codigo de respuesta sea igual a 403\", function(){",
+							"    pm.expect(pm.response.code).to.be.eql(403)",
+							"});",
+							"",
+							"pm.test(\"Validar que el tiempo de respuesta es menor a 1 seg\", function(){",
+							"    pm.expect(pm.response.responseTime).to.be.below(1000)",
+							"});",
+							"",
+							"pm.test(\"Validar que el body no viene vacio\", function(){",
+							"    pm.expect(pm.response.body).not.to.be.null;",
+							"});",
+							"",
+							"pm.test(\"Validar que el body response contenga el label\", function(){",
+							"    pm.expect(pm.response.json().error.causes[0].label).to.be.eql(\"ERROR_AD_ALREADY_DELETED\")",
+							"});",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "tag:scmcoord.com,2013:api {{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"delete_reason\": {\n        \"code\": \"2\"\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{url_base}}/nga/api/v1{{account_id}}/klfst/{{ad_id}}",
+					"protocol": "https",
+					"host": [
+						"{{url_base}}"
+					],
+					"path": [
+						"nga",
+						"api",
+						"v1{{account_id}}",
+						"klfst",
+						"{{ad_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ConsultarSiAnuncioFuePublicado",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Validar que el codigo de respuesta sea igual a 200\", function(){",
+							"    pm.expect(pm.response.code).to.be.eql(200)",
+							"});",
+							"",
+							"pm.test(\"Validar que el tiempo de respuesta es menor a 1 seg\", function(){",
+							"    pm.expect(pm.response.responseTime).to.be.below(1000)",
+							"});",
+							"",
+							"pm.test(\"Validar que el body no viene vacio\", function(){",
+							"    pm.expect(pm.response.body).not.to.be.null;",
+							"});",
+							"",
+							"",
+							"pm.test(\"Validar que el body response contenga los campos de un address\", function(){",
+							"    pm.expect(pm.response.text()).to.include('data')",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json, text/plain, */*",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"ids\": [\n        \"{{ad_id}}\"\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{url_base}}/urls/v1/public/ad-view?lang=es",
+					"protocol": "https",
+					"host": [
+						"{{url_base}}"
+					],
+					"path": [
+						"urls",
+						"v1",
+						"public",
+						"ad-view"
+					],
+					"query": [
+						{
+							"key": "lang",
+							"value": "es"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
