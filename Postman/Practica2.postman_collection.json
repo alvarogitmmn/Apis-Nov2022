@@ -1,0 +1,447 @@
+{
+	"info": {
+		"_postman_id": "987a0999-6aa0-4f5e-b346-471f88eb500b",
+		"name": "Practica 2",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24345932"
+	},
+	"item": [
+		{
+			"name": "GET /ListaDeUsuarios - 200",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"//Pruba para validar el código de respuesta\r",
+							"pm.test(\"Validar que el código de respuesta es un 200\", function(){\r",
+							"    pm.expect(pm.response.code).to.eql(200)\r",
+							"    \r",
+							"});\r",
+							"\r",
+							"pm.test(\"Validar que el status code response es un 200\", function(){\r",
+							"        pm.response.to.have.status(200)\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Validar que el status response es igual a OK\", function(){\r",
+							"        pm.response.to.have.status(\"OK\")\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Validar que el tiempo de respuesta es menor a 1 segundo\", function(){\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(1000)\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Validar que el campo email regresa un dato tipo STRING\", function(){\r",
+							"    pm.expect(pm.response.json().data[0].email).to.be.a(\"String\")\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Validar que el body no este vacio\", function(){\r",
+							"    //pm.expect(pm.response.body).not.empty;\r",
+							"     pm.expect(pm.response.body).not.null;\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://reqres.in/api/users?page=2",
+					"protocol": "https",
+					"host": [
+						"reqres",
+						"in"
+					],
+					"path": [
+						"api",
+						"users"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET /LeerUsuarioConID - 200",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"//Pruba para validar el código de respuesta\r",
+							"pm.test(\"Validar que el código de respuesta es un 200\", function(){\r",
+							"    pm.expect(pm.response.code).to.eql(200)\r",
+							"    \r",
+							"});\r",
+							"\r",
+							"pm.test(\"Validar que el status code response es un 200\", function(){\r",
+							"        pm.response.to.have.status(200)\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Validar que el status response es igual a OK\", function(){\r",
+							"        pm.response.to.have.status(\"OK\")\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Validar que el tiempo de respuesta es menor a 1 segundo\", function(){\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(1000)\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Validar que el campo email regresa un dato tipo STRING\", function(){\r",
+							"    pm.expect(pm.response.json().data.email).to.be.a(\"String\")\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Validar que el body no este vacio\", function(){\r",
+							"    //pm.expect(pm.response.body).not.empty;\r",
+							"     pm.expect(pm.response.body).not.null;\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://reqres.in/api/users/2",
+					"protocol": "https",
+					"host": [
+						"reqres",
+						"in"
+					],
+					"path": [
+						"api",
+						"users",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST /CrearUsuario - 201",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"//Pruba para validar el código de respuesta\r",
+							"pm.test(\"Validar que el código de respuesta es un 201\", function(){\r",
+							"    pm.expect(pm.response.code).to.eql(201)\r",
+							"    \r",
+							"});\r",
+							"\r",
+							"pm.test(\"Validar que el status code response es un 201\", function(){\r",
+							"        pm.response.to.have.status(201)\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Validar que el status response es igual a Created\", function(){\r",
+							"        pm.response.to.have.status(\"Created\")\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Validar que el tiempo de respuesta es menor a 1 segundo\", function(){\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(1000)\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Validar que el campo name regresa un dato tipo STRING\", function(){\r",
+							"    pm.expect(pm.response.json().name).to.be.a(\"String\")\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Validar que el body no este vacio\", function(){\r",
+							"    //pm.expect(pm.response.body).not.empty;\r",
+							"     pm.expect(pm.response.body).not.null;\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Alvaro\",\r\n    \"job\": \"QA\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://reqres.in/api/users",
+					"protocol": "https",
+					"host": [
+						"reqres",
+						"in"
+					],
+					"path": [
+						"api",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET /LeerUsuarioCreado - 201",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"//Pruba para validar el código de respuesta\r",
+							"pm.test(\"Validar que el código de respuesta es un 200\", function(){\r",
+							"    //pm.expect(pm.response.code).to.eql(200)\r",
+							"    pm.expect(pm.response.code).to.be.oneOf([200,201,404]);\r",
+							"    \r",
+							"});\r",
+							"\r",
+							"pm.test(\"Validar que el status code response es un 200\", function(){\r",
+							"        pm.response.to.have.status(200)\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Validar que el status response es igual a OK\", function(){\r",
+							"        pm.response.to.have.status(\"OK\")\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Validar que el tiempo de respuesta es menor a 1 segundo\", function(){\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(1000)\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Validar que el campo email regresa un dato tipo STRING\", function(){\r",
+							"    pm.expect(pm.response.json().data.email).to.be.a(\"String\")\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Validar que el body no este vacio\", function(){\r",
+							"    //pm.expect(pm.response.body).not.empty;\r",
+							"     pm.expect(pm.response.body).not.null;\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://reqres.in/api/users/7",
+					"protocol": "https",
+					"host": [
+						"reqres",
+						"in"
+					],
+					"path": [
+						"api",
+						"users",
+						"7"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT /EditarUsuarioCreado - 200",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"//Pruba para validar el código de respuesta\r",
+							"pm.test(\"Validar que el código de respuesta es un 200\", function(){\r",
+							"    pm.expect(pm.response.code).to.eql(200)\r",
+							"    \r",
+							"});\r",
+							"\r",
+							"pm.test(\"Validar que el status code response es un 200\", function(){\r",
+							"        pm.response.to.have.status(200)\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Validar que el status response es igual a OK\", function(){\r",
+							"        pm.response.to.have.status(\"OK\")\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Validar que el tiempo de respuesta es menor a 1 segundo\", function(){\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(1000)\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Validar que el campo name regresa un dato tipo STRING\", function(){\r",
+							"    pm.expect(pm.response.json().name).to.be.a(\"String\")\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Validar que el body no este vacio\", function(){\r",
+							"    //pm.expect(pm.response.body).not.empty;\r",
+							"     pm.expect(pm.response.body).not.null;\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"morpheus\",\r\n    \"job\": \"zion alvaro\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://reqres.in/api/users/675",
+					"protocol": "https",
+					"host": [
+						"reqres",
+						"in"
+					],
+					"path": [
+						"api",
+						"users",
+						"675"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE /EliminarUsuarioCreado - 204",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"//Pruba para validar el código de respuesta\r",
+							"pm.test(\"Validar que el código de respuesta es un 204\", function(){\r",
+							"    pm.expect(pm.response.code).to.eql(204)\r",
+							"    \r",
+							"});\r",
+							"\r",
+							"pm.test(\"Validar que el status code response es un 204\", function(){\r",
+							"        pm.response.to.have.status(204)\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Validar que el status response es igual a No Content\", function(){\r",
+							"        pm.response.to.have.status(\"No Content\")\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Validar que el tiempo de respuesta es menor a 1 segundo\", function(){\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(1000)\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Validar que el body no este vacio\", function(){\r",
+							"    //pm.expect(pm.response.body).not.empty;\r",
+							"     pm.expect(pm.response.body).not.null;\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://reqres.in/api/users/7",
+					"protocol": "https",
+					"host": [
+						"reqres",
+						"in"
+					],
+					"path": [
+						"api",
+						"users",
+						"7"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST /CrearRegistro - 200",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"//Pruba para validar el código de respuesta\r",
+							"pm.test(\"Validar que el código de respuesta es un 200\", function(){\r",
+							"    pm.expect(pm.response.code).to.eql(200)\r",
+							"    \r",
+							"});\r",
+							"\r",
+							"pm.test(\"Validar que el status code response es un 200\", function(){\r",
+							"        pm.response.to.have.status(200)\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Validar que el status response es igual a OK\", function(){\r",
+							"        pm.response.to.have.status(\"OK\")\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Validar que el tiempo de respuesta es menor a 1 segundo\", function(){\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(1000)\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Validar que el body no este vacio\", function(){\r",
+							"    //pm.expect(pm.response.body).not.empty;\r",
+							"     pm.expect(pm.response.body).not.null;\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Validar que el campo token regresa un dato tipo STRING\", function(){\r",
+							"    pm.expect(pm.response.json().token).to.be.a(\"String\")\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"eve.holt@reqres.in\",\r\n    \"password\": \"pistol\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://reqres.in/api/register",
+					"protocol": "https",
+					"host": [
+						"reqres",
+						"in"
+					],
+					"path": [
+						"api",
+						"register"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
