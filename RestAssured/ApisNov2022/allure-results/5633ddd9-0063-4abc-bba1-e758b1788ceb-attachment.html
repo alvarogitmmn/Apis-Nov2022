@@ -1,0 +1,67 @@
+<div>POST to https://webapi.segundamano.mx/urls/v1/public/ad-listing?lang=es</div>
+
+<h4>Body</h4>
+<div>
+    <pre class="preformated-text">
+    {
+    &quot;filters&quot;: [
+        {
+            &quot;price&quot;: &quot;-60000&quot;,
+            &quot;category&quot;: &quot;2020&quot;
+        },
+        {
+            &quot;price&quot;: &quot;60000-80000&quot;,
+            &quot;category&quot;: &quot;2020&quot;
+        },
+        {
+            &quot;price&quot;: &quot;80000-100000&quot;,
+            &quot;category&quot;: &quot;2020&quot;
+        },
+        {
+            &quot;price&quot;: &quot;100000-150000&quot;,
+            &quot;category&quot;: &quot;2020&quot;
+        },
+        {
+            &quot;price&quot;: &quot;150000-&quot;,
+            &quot;category&quot;: &quot;2020&quot;
+        }
+    ]
+}
+    </pre>
+</div>
+
+<h4>Headers</h4>
+<div>
+        <div>Accept: application/json, text/plain, */*</div>
+        <div>Content-Type: application/json</div>
+</div>
+
+
+
+<h4>Curl</h4>
+<div>
+curl -v -X POST &#39;https://webapi.segundamano.mx/urls/v1/public/ad-listing?lang=es&#39; -H &#39;Accept: application/json, text/plain, */*&#39; -H &#39;Content-Type: application/json&#39; -d &#39;{
+    &quot;filters&quot;: [
+        {
+            &quot;price&quot;: &quot;-60000&quot;,
+            &quot;category&quot;: &quot;2020&quot;
+        },
+        {
+            &quot;price&quot;: &quot;60000-80000&quot;,
+            &quot;category&quot;: &quot;2020&quot;
+        },
+        {
+            &quot;price&quot;: &quot;80000-100000&quot;,
+            &quot;category&quot;: &quot;2020&quot;
+        },
+        {
+            &quot;price&quot;: &quot;100000-150000&quot;,
+            &quot;category&quot;: &quot;2020&quot;
+        },
+        {
+            &quot;price&quot;: &quot;150000-&quot;,
+            &quot;category&quot;: &quot;2020&quot;
+        }
+    ]
+}&#39;
+</div>

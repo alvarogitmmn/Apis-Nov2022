@@ -1,0 +1,2903 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="eCommerce" tests="15" skipped="0" failures="0" errors="0" timestamp="2022-12-14T03:30:35" hostname="DESKTOP-KPH32QA" time="25.899">
+  <properties/>
+  <testcase name="Test case: Validar el filtrado de categorias" classname="eCommerce" time="1.246"/>
+  <testcase name="Test case: Listado de Anuncios" classname="eCommerce" time="0.758"/>
+  <testcase name="Test case: Crear Usuario" classname="eCommerce" time="0.974"/>
+  <testcase name="Test case: Obtener informaciÃ³n del usuario" classname="eCommerce" time="1.832"/>
+  <testcase name="Test case: Editar datos del usuario" classname="eCommerce" time="2.447"/>
+  <testcase name="Test case: Crear un Anuncio" classname="eCommerce" time="3.875"/>
+  <testcase name="Test case: Ver un Anuncio" classname="eCommerce" time="0.884"/>
+  <testcase name="Test case: Editar_un_Anuncio" classname="eCommerce" time="4.321"/>
+  <testcase name="Test case: Ver un Anuncio despues de editarlo" classname="eCommerce" time="0.183"/>
+  <testcase name="Test case: Crear una direccion" classname="eCommerce" time="1.587"/>
+  <testcase name="Test case: Obtener Direcciones del Usuario" classname="eCommerce" time="1.922"/>
+  <testcase name="Test case: Editar Direccion del Usuario" classname="eCommerce" time="2.043"/>
+  <testcase name="Test case: Eliminar Direccion del Usuario" classname="eCommerce" time="1.434"/>
+  <testcase name="Test case: Eliminar Anuncio" classname="eCommerce" time="2.207"/>
+  <testcase name="Test case: Consultar si el anuncio fue publicado" classname="eCommerce" time="0.169"/>
+  <system-out><![CDATA[Request method:	POST
+Request URI:	https://webapi.segundamano.mx/urls/v1/public/ad-listing?lang=es
+Proxy:			<none>
+Request params:	<none>
+Query params:	lang=es
+Form params:	<none>
+Path params:	<none>
+Headers:		Accept=application/json, text/plain, */*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "filters": [
+        {
+            "price": "-60000",
+            "category": "2020"
+        },
+        {
+            "price": "60000-80000",
+            "category": "2020"
+        },
+        {
+            "price": "80000-100000",
+            "category": "2020"
+        },
+        {
+            "price": "100000-150000",
+            "category": "2020"
+        },
+        {
+            "price": "150000-",
+            "category": "2020"
+        }
+    ]
+}
+{
+    "data": {
+        "urls": [
+            "/anuncios/mexico/autos-y-camionetas?precio=-60000",
+            "/anuncios/mexico/autos-y-camionetas?precio=60000-80000",
+            "/anuncios/mexico/autos-y-camionetas?precio=80000-100000",
+            "/anuncios/mexico/autos-y-camionetas?precio=100000-150000",
+            "/anuncios/mexico/autos-y-camionetas?precio=150000-"
+        ]
+    }
+}
+Response: {
+    "data": {
+        "urls": [
+            "/anuncios/mexico/autos-y-camionetas?precio=-60000",
+            "/anuncios/mexico/autos-y-camionetas?precio=60000-80000",
+            "/anuncios/mexico/autos-y-camionetas?precio=80000-100000",
+            "/anuncios/mexico/autos-y-camionetas?precio=100000-150000",
+            "/anuncios/mexico/autos-y-camionetas?precio=150000-"
+        ]
+    }
+}
+Status response: 200
+Tiempo respuesta: 520
+Request method:	GET
+Request URI:	https://webapi.segundamano.mx/highlights/v1/public/highlights?prio=1&cat=2020&lim=1
+Proxy:			<none>
+Request params:	<none>
+Query params:	prio=1
+				cat=2020
+				lim=1
+Form params:	<none>
+Path params:	<none>
+Headers:		Accept=*/*
+Cookies:		<none>
+Multiparts:		<none>
+Body:			<none>
+{
+    "data": {
+        "items": [
+            {
+                "list_id": "/public/ads/939291620",
+                "subject": "Volkswagen Tiguan 2019 1.4 R-Line At",
+                "thumbnail": {
+                    "base_url": "http://img.segundamano.mx",
+                    "media_id": "/public/media/ad/3538313631",
+                    "path": "35/3538313631.jpg"
+                },
+                "prices": [
+                    {
+                        "currency": "MXN",
+                        "label": "$524,500"
+                    }
+                ],
+                "locations": [
+                    {
+                        "code": "17",
+                        "key": "region",
+                        "label": "Estado de México",
+                        "locations": [
+                            {
+                                "code": "731",
+                                "key": "municipality",
+                                "label": "Naucalpan de Juárez"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+}
+Response: {
+    "data": {
+        "items": [
+            {
+                "list_id": "/public/ads/939291620",
+                "subject": "Volkswagen Tiguan 2019 1.4 R-Line At",
+                "thumbnail": {
+                    "base_url": "http://img.segundamano.mx",
+                    "media_id": "/public/media/ad/3538313631",
+                    "path": "35/3538313631.jpg"
+                },
+                "prices": [
+                    {
+                        "currency": "MXN",
+                        "label": "$524,500"
+                    }
+                ],
+                "locations": [
+                    {
+                        "code": "17",
+                        "key": "region",
+                        "label": "Estado de México",
+                        "locations": [
+                            {
+                                "code": "731",
+                                "key": "municipality",
+                                "label": "Naucalpan de Juárez"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+}
+Status response: 200
+Tiempo respuesta: 742
+Request method:	POST
+Request URI:	https://webapi.segundamano.mx/nga/api/v1.1/private/accounts?lang=es
+Proxy:			<none>
+Request params:	<none>
+Query params:	lang=es
+Form params:	<none>
+Path params:	<none>
+Headers:		Authorization=Basic YWdlbnRlX3ZlbnRhc190ZXN0NDE5Ni4wQG1haWxpbmF0b3IuY29tOjEyMzQ1
+				Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "account": {
+        "email": "agente_ventas_test4196.0@mailinator.com"
+    }
+}
+{
+    "error": {
+        "code": "ACCOUNT_VERIFICATION_REQUIRED"
+    }
+}
+Response: {
+    "error": {
+        "code": "ACCOUNT_VERIFICATION_REQUIRED"
+    }
+}
+Status response: 401
+Tiempo respuesta: 921
+Request method:	POST
+Request URI:	https://webapi.segundamano.mx/nga/api/v1.1/private/accounts?lang=es
+Proxy:			<none>
+Request params:	<none>
+Query params:	lang=es
+Form params:	<none>
+Path params:	<none>
+Headers:		Authorization=Basic cHJ1ZWJhc19hcGkxOUBtYWlsaW5hdG9yLmNvbTphYmNkZTEyMzQ1
+				Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "account": {
+        "email": "pruebas_api19@mailinator.com"
+    }
+}
+{
+    "access_token": "mc1xc83bbccd19cf9dd66e6dfec9cc8a7dbebeca9559_v2",
+    "account": {
+        "account_id": "/private/accounts/12788461",
+        "can_publish": true,
+        "email": "pruebas_api19@mailinator.com",
+        "email_verified": true,
+        "locations": [
+            
+        ],
+        "name": "Federico Lubowitz",
+        "phone": "414-602-2784",
+        "phone_hidden": true,
+        "professional": true,
+        "rfc": "XAXX010101000",
+        "uuid": "ef3ed9d3-97b6-4e38-899d-5bfb8ba310fc"
+    },
+    "ad_events": {
+        "24h": {
+            "calls": 0,
+            "mails": 0,
+            "phone_view_leads": 0,
+            "phone_views": 0,
+            "views": 0
+        },
+        "7d": {
+            "calls": 0,
+            "mails": 0,
+            "phone_view_leads": 0,
+            "phone_views": 0,
+            "views": 0
+        },
+        "total": {
+            "calls": 0,
+            "mails": 0,
+            "phone_view_leads": 0,
+            "phone_views": 0,
+            "views": 0
+        }
+    },
+    "token_type": "tag:scmcoord.com,2013:api"
+}
+Response: {
+    "access_token": "mc1xc83bbccd19cf9dd66e6dfec9cc8a7dbebeca9559_v2",
+    "account": {
+        "account_id": "/private/accounts/12788461",
+        "can_publish": true,
+        "email": "pruebas_api19@mailinator.com",
+        "email_verified": true,
+        "locations": [
+            
+        ],
+        "name": "Federico Lubowitz",
+        "phone": "414-602-2784",
+        "phone_hidden": true,
+        "professional": true,
+        "rfc": "XAXX010101000",
+        "uuid": "ef3ed9d3-97b6-4e38-899d-5bfb8ba310fc"
+    },
+    "ad_events": {
+        "24h": {
+            "calls": 0,
+            "mails": 0,
+            "phone_view_leads": 0,
+            "phone_views": 0,
+            "views": 0
+        },
+        "7d": {
+            "calls": 0,
+            "mails": 0,
+            "phone_view_leads": 0,
+            "phone_views": 0,
+            "views": 0
+        },
+        "total": {
+            "calls": 0,
+            "mails": 0,
+            "phone_view_leads": 0,
+            "phone_views": 0,
+            "views": 0
+        }
+    },
+    "token_type": "tag:scmcoord.com,2013:api"
+}
+Status response: 200
+Tiempo respuesta: 1509
+Token:mc1xc83bbccd19cf9dd66e6dfec9cc8a7dbebeca9559_v2
+Account ID: /private/accounts/12788461
+UUID: ef3ed9d3-97b6-4e38-899d-5bfb8ba310fc
+account id solo : 12788461
+Nombre completo: Jamey Orn
+Request method:	POST
+Request URI:	https://webapi.segundamano.mx/nga/api/v1.1/private/accounts?lang=es
+Proxy:			<none>
+Request params:	<none>
+Query params:	lang=es
+Form params:	<none>
+Path params:	<none>
+Headers:		Authorization=Basic cHJ1ZWJhc19hcGkxOUBtYWlsaW5hdG9yLmNvbTphYmNkZTEyMzQ1
+				Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "account": {
+        "email": "pruebas_api19@mailinator.com"
+    }
+}
+{
+    "access_token": "mc1xbf1a57cfb029ecda69f6af012c9102ab24f75645_v2",
+    "account": {
+        "account_id": "/private/accounts/12788461",
+        "can_publish": true,
+        "email": "pruebas_api19@mailinator.com",
+        "email_verified": true,
+        "locations": [
+            
+        ],
+        "name": "Federico Lubowitz",
+        "phone": "414-602-2784",
+        "phone_hidden": true,
+        "professional": true,
+        "rfc": "XAXX010101000",
+        "uuid": "ef3ed9d3-97b6-4e38-899d-5bfb8ba310fc"
+    },
+    "ad_events": {
+        "24h": {
+            "calls": 0,
+            "mails": 0,
+            "phone_view_leads": 0,
+            "phone_views": 0,
+            "views": 0
+        },
+        "7d": {
+            "calls": 0,
+            "mails": 0,
+            "phone_view_leads": 0,
+            "phone_views": 0,
+            "views": 0
+        },
+        "total": {
+            "calls": 0,
+            "mails": 0,
+            "phone_view_leads": 0,
+            "phone_views": 0,
+            "views": 0
+        }
+    },
+    "token_type": "tag:scmcoord.com,2013:api"
+}
+Response del token: {
+    "access_token": "mc1xbf1a57cfb029ecda69f6af012c9102ab24f75645_v2",
+    "account": {
+        "account_id": "/private/accounts/12788461",
+        "can_publish": true,
+        "email": "pruebas_api19@mailinator.com",
+        "email_verified": true,
+        "locations": [
+            
+        ],
+        "name": "Federico Lubowitz",
+        "phone": "414-602-2784",
+        "phone_hidden": true,
+        "professional": true,
+        "rfc": "XAXX010101000",
+        "uuid": "ef3ed9d3-97b6-4e38-899d-5bfb8ba310fc"
+    },
+    "ad_events": {
+        "24h": {
+            "calls": 0,
+            "mails": 0,
+            "phone_view_leads": 0,
+            "phone_views": 0,
+            "views": 0
+        },
+        "7d": {
+            "calls": 0,
+            "mails": 0,
+            "phone_view_leads": 0,
+            "phone_views": 0,
+            "views": 0
+        },
+        "total": {
+            "calls": 0,
+            "mails": 0,
+            "phone_view_leads": 0,
+            "phone_views": 0,
+            "views": 0
+        }
+    },
+    "token_type": "tag:scmcoord.com,2013:api"
+}
+Token:mc1xbf1a57cfb029ecda69f6af012c9102ab24f75645_v2
+Account ID: /private/accounts/12788461
+UUID: ef3ed9d3-97b6-4e38-899d-5bfb8ba310fc
+Token en la prueba Crear anuncio mc1xbf1a57cfb029ecda69f6af012c9102ab24f75645_v2
+Request method:	PATCH
+Request URI:	https://webapi.segundamano.mx/nga/api/v1/private/accounts/12788461
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		Accept=*/*
+				Authorization=tag:scmcoord.com,2013:api mc1xbf1a57cfb029ecda69f6af012c9102ab24f75645_v2
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "account": {
+        "name": "Jamey Orn",
+        "phone": "(016) 639-1986",
+        "professional": true,
+        "phone_hidden": true
+    }
+}
+{
+    "account": {
+        "account_id": "/private/accounts/12788461",
+        "can_publish": true,
+        "email": "pruebas_api19@mailinator.com",
+        "email_verified": true,
+        "locations": [
+            
+        ],
+        "name": "Jamey Orn",
+        "phone": "(016) 639-1986",
+        "phone_hidden": true,
+        "professional": true,
+        "rfc": "XAXX010101000",
+        "uuid": "ef3ed9d3-97b6-4e38-899d-5bfb8ba310fc"
+    }
+}
+Status response: 200
+Tiempo respuesta: 647
+Request method:	POST
+Request URI:	https://webapi.segundamano.mx/nga/api/v1.1/private/accounts?lang=es
+Proxy:			<none>
+Request params:	<none>
+Query params:	lang=es
+Form params:	<none>
+Path params:	<none>
+Headers:		Authorization=Basic cHJ1ZWJhc19hcGkxOUBtYWlsaW5hdG9yLmNvbTphYmNkZTEyMzQ1
+				Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "account": {
+        "email": "pruebas_api19@mailinator.com"
+    }
+}
+{
+    "access_token": "mc1x64c129e05c2cbbb86278692a2004f2897bd0e465_v2",
+    "account": {
+        "account_id": "/private/accounts/12788461",
+        "can_publish": true,
+        "email": "pruebas_api19@mailinator.com",
+        "email_verified": true,
+        "locations": [
+            
+        ],
+        "name": "Jamey Orn",
+        "phone": "(016) 639-1986",
+        "phone_hidden": true,
+        "professional": true,
+        "rfc": "XAXX010101000",
+        "uuid": "ef3ed9d3-97b6-4e38-899d-5bfb8ba310fc"
+    },
+    "ad_events": {
+        "24h": {
+            "calls": 0,
+            "mails": 0,
+            "phone_view_leads": 0,
+            "phone_views": 0,
+            "views": 0
+        },
+        "7d": {
+            "calls": 0,
+            "mails": 0,
+            "phone_view_leads": 0,
+            "phone_views": 0,
+            "views": 0
+        },
+        "total": {
+            "calls": 0,
+            "mails": 0,
+            "phone_view_leads": 0,
+            "phone_views": 0,
+            "views": 0
+        }
+    },
+    "token_type": "tag:scmcoord.com,2013:api"
+}
+Response del token: {
+    "access_token": "mc1x64c129e05c2cbbb86278692a2004f2897bd0e465_v2",
+    "account": {
+        "account_id": "/private/accounts/12788461",
+        "can_publish": true,
+        "email": "pruebas_api19@mailinator.com",
+        "email_verified": true,
+        "locations": [
+            
+        ],
+        "name": "Jamey Orn",
+        "phone": "(016) 639-1986",
+        "phone_hidden": true,
+        "professional": true,
+        "rfc": "XAXX010101000",
+        "uuid": "ef3ed9d3-97b6-4e38-899d-5bfb8ba310fc"
+    },
+    "ad_events": {
+        "24h": {
+            "calls": 0,
+            "mails": 0,
+            "phone_view_leads": 0,
+            "phone_views": 0,
+            "views": 0
+        },
+        "7d": {
+            "calls": 0,
+            "mails": 0,
+            "phone_view_leads": 0,
+            "phone_views": 0,
+            "views": 0
+        },
+        "total": {
+            "calls": 0,
+            "mails": 0,
+            "phone_view_leads": 0,
+            "phone_views": 0,
+            "views": 0
+        }
+    },
+    "token_type": "tag:scmcoord.com,2013:api"
+}
+Token:mc1x64c129e05c2cbbb86278692a2004f2897bd0e465_v2
+Account ID: /private/accounts/12788461
+UUID: ef3ed9d3-97b6-4e38-899d-5bfb8ba310fc
+Token en la prueba Crear anuncio mc1x64c129e05c2cbbb86278692a2004f2897bd0e465_v2
+Request method:	POST
+Request URI:	https://webapi.segundamano.mx/v2/accounts/ef3ed9d3-97b6-4e38-899d-5bfb8ba310fc/up
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		x-source=PHOENIX_DESKTOP
+				Accept=*/*
+				Authorization=Basic ZWYzZWQ5ZDMtOTdiNi00ZTM4LTg5OWQtNWJmYjhiYTMxMGZjOm1jMXg2NGMxMjllMDVjMmNiYmI4NjI3ODY5MmEyMDA0ZjI4OTdiZDBlNDY1X3Yy
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "images": "2265766694.jpg",
+    "category": "4100",
+    "subject": "Unbranded estampillas para colecciÃ³n",
+    "body": "Unbranded Compra y venta e intercambio de estampillas para colecciÃ³n seria",
+    "is_new": "0",
+    "region": "12",
+    "municipality": "316",
+    "area": "69520",
+    "price": "804",
+    "phone_hidden": "true",
+    "show_phone": "false",
+    "contact_phone": "267-941-5539"
+}
+{
+    "data": {
+        "ad": {
+            "ad_id": "75106720",
+            "subject": "Unbranded estampillas para colecciÃ³n",
+            "category": {
+                "code": "4100",
+                "label": "Coleccionismo",
+                "parent": {
+                    "code": "4000",
+                    "label": "Tiempo libre"
+                }
+            },
+            "region": {
+                "code": "12",
+                "label": "Durango"
+            },
+            "municipality": {
+                "code": "316",
+                "label": "Indé"
+            },
+            "area": {
+                "code": "69520",
+                "label": "El Calvario"
+            },
+            "price": {
+                "currency": "MXN",
+                "value": 804
+            },
+            "thumbnail": {
+                "base_url": "https://img.segundamano.mx",
+                "path": "22/2265766694.jpg"
+            }
+        },
+        "payment_info": {
+            "payment_required": false,
+            "title": "¡Vende más rápido con los Productos Premium!",
+            "description": "Elige la opción que mejor se ajuste a tus necesidades",
+            "products": [
+                {
+                    "id": "serv_free",
+                    "name": "Anuncio básico",
+                    "label": "Anuncio con exposición regular, tendrás menos visitas",
+                    "description": "Anuncio con exposición regular, tendrás menos visitas",
+                    "price": 0,
+                    "most_popular": false,
+                    "active": true,
+                    "payment_methods": [
+                        "pay_method_tokens"
+                    ]
+                },
+                {
+                    "id": "serv_daily",
+                    "name": "Subir Diario",
+                    "label": "Recibe hasta 5 veces más contactos en 7 días",
+                    "description": "",
+                    "price": 120,
+                    "credits": 120,
+                    "most_popular": false,
+                    "active": true,
+                    "payment_methods": [
+                        "pay_method_paypal",
+                        "pay_method_oxxo",
+                        "pay_method_credit",
+                        "pay_method_points"
+                    ]
+                },
+                {
+                    "id": "serv_premiumpackage_2",
+                    "name": "Subir diario y Posición principal",
+                    "label": "Recibe hasta 12 veces más contactos",
+                    "description": "Sube tu anuncio todos los días durante 7 días y pon tu anuncio en la primera posición durante 3 días",
+                    "price": 220,
+                    "credits": 220,
+                    "most_popular": true,
+                    "active": true,
+                    "tag": {
+                        "slug": "tag_recommended",
+                        "name": "RECOMENDADO"
+                    },
+                    "payment_methods": [
+                        "pay_method_paypal",
+                        "pay_method_oxxo",
+                        "pay_method_credit",
+                        "pay_method_points"
+                    ]
+                }
+            ]
+        }
+    }
+}
+Status response: 200
+Tiempo respuesta: 2928
+ad_id local: 75106720
+Request method:	GET
+Request URI:	https://webapi.segundamano.mx/ad-stats/v1/public/accounts/12788461/ads/75106720
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		Accept=*/*
+Cookies:		<none>
+Multiparts:		<none>
+Body:			<none>
+{
+    "list_id": "75106720",
+    "total": {
+        "change": {
+            "views": 0,
+            "phone_views": 0,
+            "mails": 0,
+            "calls": 0,
+            "phone_view_leads": 0
+        },
+        "count": {
+            "interested": 0
+        }
+    }
+}
+Body bonito del ver un anuncio: {
+    "list_id": "75106720",
+    "total": {
+        "change": {
+            "views": 0,
+            "phone_views": 0,
+            "mails": 0,
+            "calls": 0,
+            "phone_view_leads": 0
+        },
+        "count": {
+            "interested": 0
+        }
+    }
+}
+Status response: 200
+Tiempo respuesta: 875
+Nombre completo: Grant Ledner DDS
+Request method:	POST
+Request URI:	https://webapi.segundamano.mx/nga/api/v1.1/private/accounts?lang=es
+Proxy:			<none>
+Request params:	<none>
+Query params:	lang=es
+Form params:	<none>
+Path params:	<none>
+Headers:		Authorization=Basic cHJ1ZWJhc19hcGkxOUBtYWlsaW5hdG9yLmNvbTphYmNkZTEyMzQ1
+				Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "account": {
+        "email": "pruebas_api19@mailinator.com"
+    }
+}
+{
+    "access_token": "mc1xb9251dcab3ba0778c18ef5d350a0abcd8f7b0abe_v2",
+    "account": {
+        "account_id": "/private/accounts/12788461",
+        "can_publish": true,
+        "email": "pruebas_api19@mailinator.com",
+        "email_verified": true,
+        "locations": [
+            
+        ],
+        "name": "Jamey Orn",
+        "phone": "(016) 639-1986",
+        "phone_hidden": true,
+        "professional": true,
+        "rfc": "XAXX010101000",
+        "uuid": "ef3ed9d3-97b6-4e38-899d-5bfb8ba310fc"
+    },
+    "ad_events": {
+        "24h": {
+            "calls": 0,
+            "mails": 0,
+            "phone_view_leads": 0,
+            "phone_views": 0,
+            "views": 0
+        },
+        "7d": {
+            "calls": 0,
+            "mails": 0,
+            "phone_view_leads": 0,
+            "phone_views": 0,
+            "views": 0
+        },
+        "total": {
+            "calls": 0,
+            "mails": 0,
+            "phone_view_leads": 0,
+            "phone_views": 0,
+            "views": 0
+        }
+    },
+    "token_type": "tag:scmcoord.com,2013:api"
+}
+Response del token: {
+    "access_token": "mc1xb9251dcab3ba0778c18ef5d350a0abcd8f7b0abe_v2",
+    "account": {
+        "account_id": "/private/accounts/12788461",
+        "can_publish": true,
+        "email": "pruebas_api19@mailinator.com",
+        "email_verified": true,
+        "locations": [
+            
+        ],
+        "name": "Jamey Orn",
+        "phone": "(016) 639-1986",
+        "phone_hidden": true,
+        "professional": true,
+        "rfc": "XAXX010101000",
+        "uuid": "ef3ed9d3-97b6-4e38-899d-5bfb8ba310fc"
+    },
+    "ad_events": {
+        "24h": {
+            "calls": 0,
+            "mails": 0,
+            "phone_view_leads": 0,
+            "phone_views": 0,
+            "views": 0
+        },
+        "7d": {
+            "calls": 0,
+            "mails": 0,
+            "phone_view_leads": 0,
+            "phone_views": 0,
+            "views": 0
+        },
+        "total": {
+            "calls": 0,
+            "mails": 0,
+            "phone_view_leads": 0,
+            "phone_views": 0,
+            "views": 0
+        }
+    },
+    "token_type": "tag:scmcoord.com,2013:api"
+}
+Token:mc1xb9251dcab3ba0778c18ef5d350a0abcd8f7b0abe_v2
+Account ID: /private/accounts/12788461
+UUID: ef3ed9d3-97b6-4e38-899d-5bfb8ba310fc
+Token en la prueba Crear anuncio mc1xb9251dcab3ba0778c18ef5d350a0abcd8f7b0abe_v2
+Request method:	PUT
+Request URI:	https://webapi.segundamano.mx/v2/accounts/ef3ed9d3-97b6-4e38-899d-5bfb8ba310fc/up/75106720
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		x-source=PHOENIX_DESKTOP
+				Accept=*/*
+				Authorization=Basic ZWYzZWQ5ZDMtOTdiNi00ZTM4LTg5OWQtNWJmYjhiYTMxMGZjOm1jMXhiOTI1MWRjYWIzYmEwNzc4YzE4ZWY1ZDM1MGEwYWJjZDhmN2IwYWJlX3Yy
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "category": "8143",
+    "subject": "Organizamos tu evento y mas",
+    "body": "trabajamos todo tipo de eventos, desde bautizos hasta bodas. Pregunte sin compromiso. Hacemos Cotizaciones",
+    "region": "5",
+    "municipality": "51",
+    "area": "36611",
+    "price": "20000",
+    "phone_hidden": "true",
+    "show_phone": "false",
+    "contact_phone": "76013183"
+}
+{
+    "data": {
+        "ad": {
+            "ad_id": "75106720",
+            "subject": "Organizamos tu evento y mas",
+            "category": {
+                "code": "8143",
+                "label": "Organización de eventos",
+                "parent": {
+                    "code": "8140",
+                    "label": "Eventos",
+                    "parent": {
+                        "code": "8000",
+                        "label": "Servicios"
+                    }
+                }
+            },
+            "region": {
+                "code": "5",
+                "label": "Baja California Sur"
+            },
+            "municipality": {
+                "code": "51",
+                "label": "Comondú"
+            },
+            "area": {
+                "code": "36611",
+                "label": "Zona Centro"
+            },
+            "price": {
+                "currency": "MXN",
+                "value": 20000
+            }
+        }
+    }
+}
+Status response: 200
+Tiempo respuesta: 2809
+Request method:	GET
+Request URI:	https://webapi.segundamano.mx/ad-stats/v1/public/accounts/12788461/ads/75106720
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		Accept=*/*
+Cookies:		<none>
+Multiparts:		<none>
+Body:			<none>
+{
+    "list_id": "75106720",
+    "total": {
+        "change": {
+            "views": 0,
+            "phone_views": 0,
+            "mails": 0,
+            "calls": 0,
+            "phone_view_leads": 0
+        },
+        "count": {
+            "interested": 0
+        }
+    }
+}
+Body bonito del ver un anuncio: {
+    "list_id": "75106720",
+    "total": {
+        "change": {
+            "views": 0,
+            "phone_views": 0,
+            "mails": 0,
+            "calls": 0,
+            "phone_view_leads": 0
+        },
+        "count": {
+            "interested": 0
+        }
+    }
+}
+Status response: 200
+Tiempo respuesta: 176
+Request method:	POST
+Request URI:	https://webapi.segundamano.mx/nga/api/v1.1/private/accounts?lang=es
+Proxy:			<none>
+Request params:	<none>
+Query params:	lang=es
+Form params:	<none>
+Path params:	<none>
+Headers:		Authorization=Basic cHJ1ZWJhc19hcGkxOUBtYWlsaW5hdG9yLmNvbTphYmNkZTEyMzQ1
+				Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "account": {
+        "email": "pruebas_api19@mailinator.com"
+    }
+}
+{
+    "access_token": "mc1xda5d4fe74449d57a008bee1d4771658b012705d4_v2",
+    "account": {
+        "account_id": "/private/accounts/12788461",
+        "can_publish": true,
+        "email": "pruebas_api19@mailinator.com",
+        "email_verified": true,
+        "locations": [
+            
+        ],
+        "name": "Jamey Orn",
+        "phone": "(016) 639-1986",
+        "phone_hidden": true,
+        "professional": true,
+        "rfc": "XAXX010101000",
+        "uuid": "ef3ed9d3-97b6-4e38-899d-5bfb8ba310fc"
+    },
+    "ad_events": {
+        "24h": {
+            "calls": 0,
+            "mails": 0,
+            "phone_view_leads": 0,
+            "phone_views": 0,
+            "views": 0
+        },
+        "7d": {
+            "calls": 0,
+            "mails": 0,
+            "phone_view_leads": 0,
+            "phone_views": 0,
+            "views": 0
+        },
+        "total": {
+            "calls": 0,
+            "mails": 0,
+            "phone_view_leads": 0,
+            "phone_views": 0,
+            "views": 0
+        }
+    },
+    "token_type": "tag:scmcoord.com,2013:api"
+}
+Response del token: {
+    "access_token": "mc1xda5d4fe74449d57a008bee1d4771658b012705d4_v2",
+    "account": {
+        "account_id": "/private/accounts/12788461",
+        "can_publish": true,
+        "email": "pruebas_api19@mailinator.com",
+        "email_verified": true,
+        "locations": [
+            
+        ],
+        "name": "Jamey Orn",
+        "phone": "(016) 639-1986",
+        "phone_hidden": true,
+        "professional": true,
+        "rfc": "XAXX010101000",
+        "uuid": "ef3ed9d3-97b6-4e38-899d-5bfb8ba310fc"
+    },
+    "ad_events": {
+        "24h": {
+            "calls": 0,
+            "mails": 0,
+            "phone_view_leads": 0,
+            "phone_views": 0,
+            "views": 0
+        },
+        "7d": {
+            "calls": 0,
+            "mails": 0,
+            "phone_view_leads": 0,
+            "phone_views": 0,
+            "views": 0
+        },
+        "total": {
+            "calls": 0,
+            "mails": 0,
+            "phone_view_leads": 0,
+            "phone_views": 0,
+            "views": 0
+        }
+    },
+    "token_type": "tag:scmcoord.com,2013:api"
+}
+Token:mc1xda5d4fe74449d57a008bee1d4771658b012705d4_v2
+Account ID: /private/accounts/12788461
+UUID: ef3ed9d3-97b6-4e38-899d-5bfb8ba310fc
+Request method:	POST
+Request URI:	https://webapi.segundamano.mx/addresses/v1/create
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	contact=Agente de ventas
+				phone=8979876576
+				rfc=XAXX010101000
+				zipCode=11011
+				exteriorInfo=Hidalgo 897
+				interiorInfo=3
+				region=11
+				municipality=300
+				area=8094
+				alias=Oficina
+Path params:	<none>
+Headers:		Accept=application/json, text/plain, */*
+				Authorization=Basic ZWYzZWQ5ZDMtOTdiNi00ZTM4LTg5OWQtNWJmYjhiYTMxMGZjOm1jMXhkYTVkNGZlNzQ0NDlkNTdhMDA4YmVlMWQ0NzcxNjU4YjAxMjcwNWQ0X3Yy
+				Content-Type=application/x-www-form-urlencoded; charset=ISO-8859-1
+Cookies:		<none>
+Multiparts:		<none>
+Body:			<none>
+{
+    "addressID": "b68cb600-7b5f-11ed-bc5c-879dea59c0c2"
+}
+Body bonito:{
+    "addressID": "b68cb600-7b5f-11ed-bc5c-879dea59c0c2"
+}
+Status response: 201
+Tiempo respuesta: 259
+Request method:	POST
+Request URI:	https://webapi.segundamano.mx/nga/api/v1.1/private/accounts?lang=es
+Proxy:			<none>
+Request params:	<none>
+Query params:	lang=es
+Form params:	<none>
+Path params:	<none>
+Headers:		Authorization=Basic cHJ1ZWJhc19hcGkxOUBtYWlsaW5hdG9yLmNvbTphYmNkZTEyMzQ1
+				Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "account": {
+        "email": "pruebas_api19@mailinator.com"
+    }
+}
+{
+    "access_token": "mc1x146c98ef67fbb6fd4377af1d3bd201439e17710e_v2",
+    "account": {
+        "account_id": "/private/accounts/12788461",
+        "can_publish": true,
+        "email": "pruebas_api19@mailinator.com",
+        "email_verified": true,
+        "locations": [
+            
+        ],
+        "name": "Jamey Orn",
+        "phone": "(016) 639-1986",
+        "phone_hidden": true,
+        "professional": true,
+        "rfc": "XAXX010101000",
+        "uuid": "ef3ed9d3-97b6-4e38-899d-5bfb8ba310fc"
+    },
+    "ad_events": {
+        "24h": {
+            "calls": 0,
+            "mails": 0,
+            "phone_view_leads": 0,
+            "phone_views": 0,
+            "views": 0
+        },
+        "7d": {
+            "calls": 0,
+            "mails": 0,
+            "phone_view_leads": 0,
+            "phone_views": 0,
+            "views": 0
+        },
+        "total": {
+            "calls": 0,
+            "mails": 0,
+            "phone_view_leads": 0,
+            "phone_views": 0,
+            "views": 0
+        }
+    },
+    "token_type": "tag:scmcoord.com,2013:api"
+}
+Response del token: {
+    "access_token": "mc1x146c98ef67fbb6fd4377af1d3bd201439e17710e_v2",
+    "account": {
+        "account_id": "/private/accounts/12788461",
+        "can_publish": true,
+        "email": "pruebas_api19@mailinator.com",
+        "email_verified": true,
+        "locations": [
+            
+        ],
+        "name": "Jamey Orn",
+        "phone": "(016) 639-1986",
+        "phone_hidden": true,
+        "professional": true,
+        "rfc": "XAXX010101000",
+        "uuid": "ef3ed9d3-97b6-4e38-899d-5bfb8ba310fc"
+    },
+    "ad_events": {
+        "24h": {
+            "calls": 0,
+            "mails": 0,
+            "phone_view_leads": 0,
+            "phone_views": 0,
+            "views": 0
+        },
+        "7d": {
+            "calls": 0,
+            "mails": 0,
+            "phone_view_leads": 0,
+            "phone_views": 0,
+            "views": 0
+        },
+        "total": {
+            "calls": 0,
+            "mails": 0,
+            "phone_view_leads": 0,
+            "phone_views": 0,
+            "views": 0
+        }
+    },
+    "token_type": "tag:scmcoord.com,2013:api"
+}
+Token:mc1x146c98ef67fbb6fd4377af1d3bd201439e17710e_v2
+Account ID: /private/accounts/12788461
+UUID: ef3ed9d3-97b6-4e38-899d-5bfb8ba310fc
+Request method:	GET
+Request URI:	https://webapi.segundamano.mx/addresses/v1/get
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		Accept=*/*
+				Authorization=Basic ZWYzZWQ5ZDMtOTdiNi00ZTM4LTg5OWQtNWJmYjhiYTMxMGZjOm1jMXgxNDZjOThlZjY3ZmJiNmZkNDM3N2FmMWQzYmQyMDE0MzllMTc3MTBlX3Yy
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:			<none>
+{
+    "addresses": {
+        "f187b888-769e-11ed-926d-77d4986da861": {
+            "exteriorInfo": "Juarez",
+            "interiorInfo": "33",
+            "region": 14,
+            "municipality": 324,
+            "area": 8029,
+            "alias": "Casita Azul",
+            "contact": "Agente de ventas",
+            "phone": "6677889900",
+            "zipCode": "11011"
+        },
+        "d59e1528-7a49-11ed-bc5c-23489f8d1190": {
+            "exteriorInfo": "Juarez",
+            "interiorInfo": "33",
+            "region": 14,
+            "municipality": 324,
+            "area": 8029,
+            "alias": "Casita Azul",
+            "contact": "Agente de ventas",
+            "phone": "6677889900",
+            "zipCode": "11011"
+        },
+        "ef4bdd92-7a4a-11ed-bc5c-3788d4392090": {
+            "exteriorInfo": "Juarez",
+            "interiorInfo": "33",
+            "region": 14,
+            "municipality": 324,
+            "area": 8029,
+            "alias": "Casita Azul",
+            "contact": "Agente de ventas",
+            "phone": "6677889900",
+            "zipCode": "11011"
+        },
+        "6729bb4a-7a4b-11ed-bb2c-db32ab135fb9": {
+            "exteriorInfo": "Juarez",
+            "interiorInfo": "33",
+            "region": 14,
+            "municipality": 324,
+            "area": 8029,
+            "alias": "Casita Azul",
+            "contact": "Agente de ventas",
+            "phone": "6677889900",
+            "zipCode": "11011"
+        },
+        "86c8cade-7a4d-11ed-bb2c-07db52901f5c": {
+            "exteriorInfo": "Juarez",
+            "interiorInfo": "33",
+            "region": 14,
+            "municipality": 324,
+            "area": 8029,
+            "alias": "Casita Azul",
+            "contact": "Agente de ventas",
+            "phone": "6677889900",
+            "zipCode": "11011"
+        },
+        "3774fa4c-7a4e-11ed-926d-83aed42e59b4": {
+            "exteriorInfo": "Juarez",
+            "interiorInfo": "33",
+            "region": 14,
+            "municipality": 324,
+            "area": 8029,
+            "alias": "Casita Azul",
+            "contact": "Agente de ventas",
+            "phone": "6677889900",
+            "zipCode": "11011"
+        },
+        "53db5590-7a4f-11ed-9f3e-4fd2926150fc": {
+            "exteriorInfo": "Juarez",
+            "interiorInfo": "33",
+            "region": 14,
+            "municipality": 324,
+            "area": 8029,
+            "alias": "Casita Azul",
+            "contact": "Agente de ventas",
+            "phone": "6677889900",
+            "zipCode": "11011"
+        },
+        "315aef8e-7a50-11ed-bb2c-af186d9c6ccf": {
+            "exteriorInfo": "Juarez",
+            "interiorInfo": "33",
+            "region": 14,
+            "municipality": 324,
+            "area": 8029,
+            "alias": "Casita Azul",
+            "contact": "Agente de ventas",
+            "phone": "6677889900",
+            "zipCode": "11011"
+        },
+        "6944c0b4-7a50-11ed-9f3e-e3e72c4f10af": {
+            "exteriorInfo": "Juarez",
+            "interiorInfo": "33",
+            "region": 14,
+            "municipality": 324,
+            "area": 8029,
+            "alias": "Casita Azul",
+            "contact": "Agente de ventas",
+            "phone": "6677889900",
+            "zipCode": "11011"
+        },
+        "a750ef1a-7aa3-11ed-bc5c-df54eb00b540": {
+            "exteriorInfo": "Hidalgo 897",
+            "interiorInfo": "3",
+            "region": 11,
+            "municipality": 300,
+            "area": 8094,
+            "alias": "Oficina",
+            "contact": "Agente de ventas",
+            "phone": "8979876576",
+            "zipCode": "11011"
+        },
+        "c69c6e26-7aa3-11ed-926d-177f09bccab4": {
+            "exteriorInfo": "Hidalgo 897",
+            "interiorInfo": "3",
+            "region": 11,
+            "municipality": 300,
+            "area": 8094,
+            "alias": "Oficina",
+            "contact": "Agente de ventas",
+            "phone": "8979876576",
+            "zipCode": "11011"
+        },
+        "26db2c00-7aa4-11ed-926d-bb59ffef995b": {
+            "exteriorInfo": "Hidalgo 897",
+            "interiorInfo": "3",
+            "region": 11,
+            "municipality": 300,
+            "area": 8094,
+            "alias": "Oficina",
+            "contact": "Agente de ventas",
+            "phone": "8979876576",
+            "zipCode": "11011"
+        },
+        "6ce5aae0-7aa4-11ed-9f3e-73d8033c8e66": {
+            "exteriorInfo": "Hidalgo 897",
+            "interiorInfo": "3",
+            "region": 11,
+            "municipality": 300,
+            "area": 8094,
+            "alias": "Oficina",
+            "contact": "Agente de ventas",
+            "phone": "8979876576",
+            "zipCode": "11011"
+        },
+        "8be31590-7aa4-11ed-926d-e32735dca8b2": {
+            "exteriorInfo": "Hidalgo 897",
+            "interiorInfo": "3",
+            "region": 11,
+            "municipality": 300,
+            "area": 8094,
+            "alias": "Oficina",
+            "contact": "Agente de ventas",
+            "phone": "8979876576",
+            "zipCode": "11011"
+        },
+        "771f5906-7aa5-11ed-bb2c-b37853853b15": {
+            "exteriorInfo": "Hidalgo 897",
+            "interiorInfo": "3",
+            "region": 11,
+            "municipality": 300,
+            "area": 8094,
+            "alias": "Oficina",
+            "contact": "Agente de ventas",
+            "phone": "8979876576",
+            "zipCode": "11011"
+        },
+        "9517a620-7aa5-11ed-9f3e-d3e1324d0947": {
+            "exteriorInfo": "Hidalgo 897",
+            "interiorInfo": "3",
+            "region": 11,
+            "municipality": 300,
+            "area": 8094,
+            "alias": "Oficina",
+            "contact": "Agente de ventas",
+            "phone": "8979876576",
+            "zipCode": "11011"
+        },
+        "d57f8440-7aa9-11ed-bc5c-37b54ac145e5": {
+            "exteriorInfo": "Hidalgo 897",
+            "interiorInfo": "3",
+            "region": 11,
+            "municipality": 300,
+            "area": 8094,
+            "alias": "Oficina",
+            "contact": "Agente de ventas",
+            "phone": "8979876576",
+            "zipCode": "11011"
+        },
+        "f9d2bdda-7aa9-11ed-9f3e-2ffc5f8b0d58": {
+            "exteriorInfo": "Hidalgo 897",
+            "interiorInfo": "3",
+            "region": 11,
+            "municipality": 300,
+            "area": 8094,
+            "alias": "Oficina",
+            "contact": "Agente de ventas",
+            "phone": "8979876576",
+            "zipCode": "11011"
+        },
+        "1ecf494c-7aae-11ed-bb2c-4f0580c717d8": {
+            "exteriorInfo": "Hidalgo 897",
+            "interiorInfo": "3",
+            "region": 11,
+            "municipality": 300,
+            "area": 8094,
+            "alias": "Oficina",
+            "contact": "Agente de ventas",
+            "phone": "8979876576",
+            "zipCode": "11011"
+        },
+        "82bc64d2-7b4c-11ed-bc5c-234fe5c81f6e": {
+            "exteriorInfo": "Hidalgo 897",
+            "interiorInfo": "3",
+            "region": 11,
+            "municipality": 300,
+            "area": 8094,
+            "alias": "Oficina",
+            "contact": "Agente de ventas",
+            "phone": "8979876576",
+            "zipCode": "11011"
+        },
+        "cf6883b0-7b4c-11ed-bb2c-4f569bbde415": {
+            "exteriorInfo": "Hidalgo 897",
+            "interiorInfo": "3",
+            "region": 11,
+            "municipality": 300,
+            "area": 8094,
+            "alias": "Oficina",
+            "contact": "Agente de ventas",
+            "phone": "8979876576",
+            "zipCode": "11011"
+        },
+        "1acfccbe-7b4d-11ed-bb2c-534a726d7731": {
+            "exteriorInfo": "Hidalgo 897",
+            "interiorInfo": "3",
+            "region": 11,
+            "municipality": 300,
+            "area": 8094,
+            "alias": "Oficina",
+            "contact": "Agente de ventas",
+            "phone": "8979876576",
+            "zipCode": "11011"
+        },
+        "57429708-7b4d-11ed-9f3e-cb461e542a19": {
+            "exteriorInfo": "Hidalgo 897",
+            "interiorInfo": "3",
+            "region": 11,
+            "municipality": 300,
+            "area": 8094,
+            "alias": "Oficina",
+            "contact": "Agente de ventas",
+            "phone": "8979876576",
+            "zipCode": "11011"
+        },
+        "7d693662-7b4d-11ed-bc5c-b7f8ace03e9b": {
+            "exteriorInfo": "Hidalgo 897",
+            "interiorInfo": "3",
+            "region": 11,
+            "municipality": 300,
+            "area": 8094,
+            "alias": "Oficina",
+            "contact": "Agente de ventas",
+            "phone": "8979876576",
+            "zipCode": "11011"
+        },
+        "a7e0946c-7b4d-11ed-bc5c-1bf0fce2895e": {
+            "exteriorInfo": "Hidalgo 897",
+            "interiorInfo": "3",
+            "region": 11,
+            "municipality": 300,
+            "area": 8094,
+            "alias": "Oficina",
+            "contact": "Agente de ventas",
+            "phone": "8979876576",
+            "zipCode": "11011"
+        },
+        "831b620a-7b4e-11ed-bb2c-1fb669fddb2e": {
+            "exteriorInfo": "Hidalgo 897",
+            "interiorInfo": "3",
+            "region": 11,
+            "municipality": 300,
+            "area": 8094,
+            "alias": "Oficina",
+            "contact": "Agente de ventas",
+            "phone": "8979876576",
+            "zipCode": "11011"
+        },
+        "d9b51db8-7b4e-11ed-926d-c7c19ef2133b": {
+            "exteriorInfo": "Hidalgo 897",
+            "interiorInfo": "3",
+            "region": 11,
+            "municipality": 300,
+            "area": 8094,
+            "alias": "Oficina",
+            "contact": "Agente de ventas",
+            "phone": "8979876576",
+            "zipCode": "11011"
+        },
+        "26d596cc-7b4f-11ed-bb2c-735b956512ca": {
+            "exteriorInfo": "Hidalgo 897",
+            "interiorInfo": "3",
+            "region": 11,
+            "municipality": 300,
+            "area": 8094,
+            "alias": "Oficina",
+            "contact": "Agente de ventas",
+            "phone": "8979876576",
+            "zipCode": "11011"
+        },
+        "8e3bc4da-7b4f-11ed-bc5c-ef137afeb93f": {
+            "exteriorInfo": "Hidalgo 897",
+            "interiorInfo": "3",
+            "region": 11,
+            "municipality": 300,
+            "area": 8094,
+            "alias": "Oficina",
+            "contact": "Agente de ventas",
+            "phone": "8979876576",
+            "zipCode": "11011"
+        },
+        "c2fe59b2-7b4f-11ed-bc5c-a310a70806fd": {
+            "exteriorInfo": "Hidalgo 897",
+            "interiorInfo": "3",
+            "region": 11,
+            "municipality": 300,
+            "area": 8094,
+            "alias": "Oficina",
+            "contact": "Agente de ventas",
+            "phone": "8979876576",
+            "zipCode": "11011"
+        },
+        "e847591c-7b4f-11ed-bb2c-3705ef58c94e": {
+            "exteriorInfo": "Hidalgo 897",
+            "interiorInfo": "3",
+            "region": 11,
+            "municipality": 300,
+            "area": 8094,
+            "alias": "Oficina",
+            "contact": "Agente de ventas",
+            "phone": "8979876576",
+            "zipCode": "11011"
+        },
+        "72e53b34-7b50-11ed-bc5c-235e1d0b6f44": {
+            "exteriorInfo": "Hidalgo 897",
+            "interiorInfo": "3",
+            "region": 11,
+            "municipality": 300,
+            "area": 8094,
+            "alias": "Oficina",
+            "contact": "Agente de ventas",
+            "phone": "8979876576",
+            "zipCode": "11011"
+        },
+        "c6f01c94-7b50-11ed-9f3e-2785a586382a": {
+            "exteriorInfo": "Hidalgo 897",
+            "interiorInfo": "3",
+            "region": 11,
+            "municipality": 300,
+            "area": 8094,
+            "alias": "Oficina",
+            "contact": "Agente de ventas",
+            "phone": "8979876576",
+            "zipCode": "11011"
+        },
+        "de425268-7b50-11ed-926d-ff5759503ea2": {
+            "exteriorInfo": "Hidalgo 897",
+            "interiorInfo": "3",
+            "region": 11,
+            "municipality": 300,
+            "area": 8094,
+            "alias": "Oficina",
+            "contact": "Agente de ventas",
+            "phone": "8979876576",
+            "zipCode": "11011"
+        },
+        "039a86b6-7b51-11ed-bb2c-df38806b103c": {
+            "exteriorInfo": "Hidalgo 897",
+            "interiorInfo": "3",
+            "region": 11,
+            "municipality": 300,
+            "area": 8094,
+            "alias": "Oficina",
+            "contact": "Agente de ventas",
+            "phone": "8979876576",
+            "zipCode": "11011"
+        },
+        "308bf9ca-7b51-11ed-bb2c-6b0a4c11d608": {
+            "exteriorInfo": "Hidalgo 897",
+            "interiorInfo": "3",
+            "region": 11,
+            "municipality": 300,
+            "area": 8094,
+            "alias": "Oficina",
+            "contact": "Agente de ventas",
+            "phone": "8979876576",
+            "zipCode": "11011"
+        },
+        "5b991210-7b51-11ed-bc5c-1fcd54257451": {
+            "exteriorInfo": "Hidalgo 897",
+            "interiorInfo": "3",
+            "region": 11,
+            "municipality": 300,
+            "area": 8094,
+            "alias": "Oficina",
+            "contact": "Agente de ventas",
+            "phone": "8979876576",
+            "zipCode": "11011"
+        },
+        "0cf42360-7b52-11ed-926d-4b7ce02d8497": {
+            "exteriorInfo": "Hidalgo 897",
+            "interiorInfo": "3",
+            "region": 11,
+            "municipality": 300,
+            "area": 8094,
+            "alias": "Oficina",
+            "contact": "Agente de ventas",
+            "phone": "8979876576",
+            "zipCode": "11011"
+        },
+        "10b8d6c4-7b54-11ed-bb2c-47395d4ec3d4": {
+            "exteriorInfo": "Hidalgo 897",
+            "interiorInfo": "3",
+            "region": 11,
+            "municipality": 300,
+            "area": 8094,
+            "alias": "Oficina",
+            "contact": "Agente de ventas",
+            "phone": "8979876576",
+            "zipCode": "11011"
+        },
+        "3d8680ac-7b54-11ed-9f3e-0fbe7cc4fcb3": {
+            "exteriorInfo": "Hidalgo 897",
+            "interiorInfo": "3",
+            "region": 11,
+            "municipality": 300,
+            "area": 8094,
+            "alias": "Oficina",
+            "contact": "Agente de ventas",
+            "phone": "8979876576",
+            "zipCode": "11011"
+        },
+        "6b10e454-7b54-11ed-bb2c-63fa824469df": {
+            "exteriorInfo": "Hidalgo 897",
+            "interiorInfo": "3",
+            "region": 11,
+            "municipality": 300,
+            "area": 8094,
+            "alias": "Oficina",
+            "contact": "Agente de ventas",
+            "phone": "8979876576",
+            "zipCode": "11011"
+        },
+        "99ad3c86-7b54-11ed-926d-230d0754df4e": {
+            "exteriorInfo": "Hidalgo 897",
+            "interiorInfo": "3",
+            "region": 11,
+            "municipality": 300,
+            "area": 8094,
+            "alias": "Oficina",
+            "contact": "Agente de ventas",
+            "phone": "8979876576",
+            "zipCode": "11011"
+        },
+        "4aa75152-7b55-11ed-9f3e-d328e6cd39e5": {
+            "exteriorInfo": "Hidalgo 897",
+            "interiorInfo": "3",
+            "region": 11,
+            "municipality": 300,
+            "area": 8094,
+            "alias": "Oficina",
+            "contact": "Agente de ventas",
+            "phone": "8979876576",
+            "zipCode": "11011"
+        },
+        "67f607b2-7b55-11ed-bb2c-6fa0205911a9": {
+            "exteriorInfo": "Hidalgo 897",
+            "interiorInfo": "3",
+            "region": 11,
+            "municipality": 300,
+            "area": 8094,
+            "alias": "Oficina",
+            "contact": "Agente de ventas",
+            "phone": "8979876576",
+            "zipCode": "11011"
+        },
+        "7ec1ff32-7b55-11ed-9f3e-c3bea1b05255": {
+            "exteriorInfo": "Hidalgo 897",
+            "interiorInfo": "3",
+            "region": 11,
+            "municipality": 300,
+            "area": 8094,
+            "alias": "Oficina",
+            "contact": "Agente de ventas",
+            "phone": "8979876576",
+            "zipCode": "11011"
+        },
+        "4c70e4b6-7b56-11ed-bb2c-b375a5e345ff": {
+            "exteriorInfo": "Hidalgo 897",
+            "interiorInfo": "3",
+            "region": 11,
+            "municipality": 300,
+            "area": 8094,
+            "alias": "Oficina",
+            "contact": "Agente de ventas",
+            "phone": "8979876576",
+            "zipCode": "11011"
+        },
+        "496be7d8-7b57-11ed-bb2c-8f739cf43d45": {
+            "exteriorInfo": "Hidalgo 897",
+            "interiorInfo": "3",
+            "region": 11,
+            "municipality": 300,
+            "area": 8094,
+            "alias": "Oficina",
+            "contact": "Agente de ventas",
+            "phone": "8979876576",
+            "zipCode": "11011"
+        },
+        "8e82a46a-7b57-11ed-9f3e-237a6aae7537": {
+            "exteriorInfo": "Hidalgo 897",
+            "interiorInfo": "3",
+            "region": 11,
+            "municipality": 300,
+            "area": 8094,
+            "alias": "Oficina",
+            "contact": "Agente de ventas",
+            "phone": "8979876576",
+            "zipCode": "11011"
+        },
+        "3f2b9ec0-7b58-11ed-bb2c-a73304b16972": {
+            "exteriorInfo": "Hidalgo 897",
+            "interiorInfo": "3",
+            "region": 11,
+            "municipality": 300,
+            "area": 8094,
+            "alias": "Oficina",
+            "contact": "Agente de ventas",
+            "phone": "8979876576",
+            "zipCode": "11011"
+        },
+        "e5667af8-7b58-11ed-9f3e-e7c2e2a729c8": {
+            "exteriorInfo": "Hidalgo 897",
+            "interiorInfo": "3",
+            "region": 11,
+            "municipality": 300,
+            "area": 8094,
+            "alias": "Oficina",
+            "contact": "Agente de ventas",
+            "phone": "8979876576",
+            "zipCode": "11011"
+        },
+        "0738382e-7b59-11ed-bc5c-4b35853cfccc": {
+            "exteriorInfo": "Hidalgo 897",
+            "interiorInfo": "3",
+            "region": 11,
+            "municipality": 300,
+            "area": 8094,
+            "alias": "Oficina",
+            "contact": "Agente de ventas",
+            "phone": "8979876576",
+            "zipCode": "11011"
+        },
+        "58183794-7b59-11ed-bc5c-670d909dcc50": {
+            "exteriorInfo": "Hidalgo 897",
+            "interiorInfo": "3",
+            "region": 11,
+            "municipality": 300,
+            "area": 8094,
+            "alias": "Oficina",
+            "contact": "Agente de ventas",
+            "phone": "8979876576",
+            "zipCode": "11011"
+        },
+        "aa98f87c-7b5a-11ed-bc5c-6f9083b0a7be": {
+            "exteriorInfo": "Hidalgo 897",
+            "interiorInfo": "3",
+            "region": 11,
+            "municipality": 300,
+            "area": 8094,
+            "alias": "Oficina",
+            "contact": "Agente de ventas",
+            "phone": "8979876576",
+            "zipCode": "11011"
+        },
+        "2f3fd726-7b5b-11ed-bb2c-db024d6b125c": {
+            "exteriorInfo": "Hidalgo 897",
+            "interiorInfo": "3",
+            "region": 11,
+            "municipality": 300,
+            "area": 8094,
+            "alias": "Oficina",
+            "contact": "Agente de ventas",
+            "phone": "8979876576",
+            "zipCode": "11011"
+        },
+        "2a613ffe-7b5d-11ed-9f3e-2beaa98615cb": {
+            "exteriorInfo": "Hidalgo 897",
+            "interiorInfo": "3",
+            "region": 11,
+            "municipality": 300,
+            "area": 8094,
+            "alias": "Oficina",
+            "contact": "Agente de ventas",
+            "phone": "8979876576",
+            "zipCode": "11011"
+        },
+        "57976b1a-7b5d-11ed-926d-dbe6dc075ace": {
+            "exteriorInfo": "Hidalgo 897",
+            "interiorInfo": "167",
+            "region": 11,
+            "municipality": 300,
+            "area": 8094,
+            "alias": "Oficina",
+            "contact": "Kevin Kub",
+            "phone": "8979876576",
+            "zipCode": "11011"
+        },
+        "b68cb600-7b5f-11ed-bc5c-879dea59c0c2": {
+            "exteriorInfo": "Hidalgo 897",
+            "interiorInfo": "3",
+            "region": 11,
+            "municipality": 300,
+            "area": 8094,
+            "alias": "Oficina",
+            "contact": "Agente de ventas",
+            "phone": "8979876576",
+            "zipCode": "11011"
+        }
+    }
+}
+Body bonito:{
+    "addresses": {
+        "f187b888-769e-11ed-926d-77d4986da861": {
+            "exteriorInfo": "Juarez",
+            "interiorInfo": "33",
+            "region": 14,
+            "municipality": 324,
+            "area": 8029,
+            "alias": "Casita Azul",
+            "contact": "Agente de ventas",
+            "phone": "6677889900",
+            "zipCode": "11011"
+        },
+        "d59e1528-7a49-11ed-bc5c-23489f8d1190": {
+            "exteriorInfo": "Juarez",
+            "interiorInfo": "33",
+            "region": 14,
+            "municipality": 324,
+            "area": 8029,
+            "alias": "Casita Azul",
+            "contact": "Agente de ventas",
+            "phone": "6677889900",
+            "zipCode": "11011"
+        },
+        "ef4bdd92-7a4a-11ed-bc5c-3788d4392090": {
+            "exteriorInfo": "Juarez",
+            "interiorInfo": "33",
+            "region": 14,
+            "municipality": 324,
+            "area": 8029,
+            "alias": "Casita Azul",
+            "contact": "Agente de ventas",
+            "phone": "6677889900",
+            "zipCode": "11011"
+        },
+        "6729bb4a-7a4b-11ed-bb2c-db32ab135fb9": {
+            "exteriorInfo": "Juarez",
+            "interiorInfo": "33",
+            "region": 14,
+            "municipality": 324,
+            "area": 8029,
+            "alias": "Casita Azul",
+            "contact": "Agente de ventas",
+            "phone": "6677889900",
+            "zipCode": "11011"
+        },
+        "86c8cade-7a4d-11ed-bb2c-07db52901f5c": {
+            "exteriorInfo": "Juarez",
+            "interiorInfo": "33",
+            "region": 14,
+            "municipality": 324,
+            "area": 8029,
+            "alias": "Casita Azul",
+            "contact": "Agente de ventas",
+            "phone": "6677889900",
+            "zipCode": "11011"
+        },
+        "3774fa4c-7a4e-11ed-926d-83aed42e59b4": {
+            "exteriorInfo": "Juarez",
+            "interiorInfo": "33",
+            "region": 14,
+            "municipality": 324,
+            "area": 8029,
+            "alias": "Casita Azul",
+            "contact": "Agente de ventas",
+            "phone": "6677889900",
+            "zipCode": "11011"
+        },
+        "53db5590-7a4f-11ed-9f3e-4fd2926150fc": {
+            "exteriorInfo": "Juarez",
+            "interiorInfo": "33",
+            "region": 14,
+            "municipality": 324,
+            "area": 8029,
+            "alias": "Casita Azul",
+            "contact": "Agente de ventas",
+            "phone": "6677889900",
+            "zipCode": "11011"
+        },
+        "315aef8e-7a50-11ed-bb2c-af186d9c6ccf": {
+            "exteriorInfo": "Juarez",
+            "interiorInfo": "33",
+            "region": 14,
+            "municipality": 324,
+            "area": 8029,
+            "alias": "Casita Azul",
+            "contact": "Agente de ventas",
+            "phone": "6677889900",
+            "zipCode": "11011"
+        },
+        "6944c0b4-7a50-11ed-9f3e-e3e72c4f10af": {
+            "exteriorInfo": "Juarez",
+            "interiorInfo": "33",
+            "region": 14,
+            "municipality": 324,
+            "area": 8029,
+            "alias": "Casita Azul",
+            "contact": "Agente de ventas",
+            "phone": "6677889900",
+            "zipCode": "11011"
+        },
+        "a750ef1a-7aa3-11ed-bc5c-df54eb00b540": {
+            "exteriorInfo": "Hidalgo 897",
+            "interiorInfo": "3",
+            "region": 11,
+            "municipality": 300,
+            "area": 8094,
+            "alias": "Oficina",
+            "contact": "Agente de ventas",
+            "phone": "8979876576",
+            "zipCode": "11011"
+        },
+        "c69c6e26-7aa3-11ed-926d-177f09bccab4": {
+            "exteriorInfo": "Hidalgo 897",
+            "interiorInfo": "3",
+            "region": 11,
+            "municipality": 300,
+            "area": 8094,
+            "alias": "Oficina",
+            "contact": "Agente de ventas",
+            "phone": "8979876576",
+            "zipCode": "11011"
+        },
+        "26db2c00-7aa4-11ed-926d-bb59ffef995b": {
+            "exteriorInfo": "Hidalgo 897",
+            "interiorInfo": "3",
+            "region": 11,
+            "municipality": 300,
+            "area": 8094,
+            "alias": "Oficina",
+            "contact": "Agente de ventas",
+            "phone": "8979876576",
+            "zipCode": "11011"
+        },
+        "6ce5aae0-7aa4-11ed-9f3e-73d8033c8e66": {
+            "exteriorInfo": "Hidalgo 897",
+            "interiorInfo": "3",
+            "region": 11,
+            "municipality": 300,
+            "area": 8094,
+            "alias": "Oficina",
+            "contact": "Agente de ventas",
+            "phone": "8979876576",
+            "zipCode": "11011"
+        },
+        "8be31590-7aa4-11ed-926d-e32735dca8b2": {
+            "exteriorInfo": "Hidalgo 897",
+            "interiorInfo": "3",
+            "region": 11,
+            "municipality": 300,
+            "area": 8094,
+            "alias": "Oficina",
+            "contact": "Agente de ventas",
+            "phone": "8979876576",
+            "zipCode": "11011"
+        },
+        "771f5906-7aa5-11ed-bb2c-b37853853b15": {
+            "exteriorInfo": "Hidalgo 897",
+            "interiorInfo": "3",
+            "region": 11,
+            "municipality": 300,
+            "area": 8094,
+            "alias": "Oficina",
+            "contact": "Agente de ventas",
+            "phone": "8979876576",
+            "zipCode": "11011"
+        },
+        "9517a620-7aa5-11ed-9f3e-d3e1324d0947": {
+            "exteriorInfo": "Hidalgo 897",
+            "interiorInfo": "3",
+            "region": 11,
+            "municipality": 300,
+            "area": 8094,
+            "alias": "Oficina",
+            "contact": "Agente de ventas",
+            "phone": "8979876576",
+            "zipCode": "11011"
+        },
+        "d57f8440-7aa9-11ed-bc5c-37b54ac145e5": {
+            "exteriorInfo": "Hidalgo 897",
+            "interiorInfo": "3",
+            "region": 11,
+            "municipality": 300,
+            "area": 8094,
+            "alias": "Oficina",
+            "contact": "Agente de ventas",
+            "phone": "8979876576",
+            "zipCode": "11011"
+        },
+        "f9d2bdda-7aa9-11ed-9f3e-2ffc5f8b0d58": {
+            "exteriorInfo": "Hidalgo 897",
+            "interiorInfo": "3",
+            "region": 11,
+            "municipality": 300,
+            "area": 8094,
+            "alias": "Oficina",
+            "contact": "Agente de ventas",
+            "phone": "8979876576",
+            "zipCode": "11011"
+        },
+        "1ecf494c-7aae-11ed-bb2c-4f0580c717d8": {
+            "exteriorInfo": "Hidalgo 897",
+            "interiorInfo": "3",
+            "region": 11,
+            "municipality": 300,
+            "area": 8094,
+            "alias": "Oficina",
+            "contact": "Agente de ventas",
+            "phone": "8979876576",
+            "zipCode": "11011"
+        },
+        "82bc64d2-7b4c-11ed-bc5c-234fe5c81f6e": {
+            "exteriorInfo": "Hidalgo 897",
+            "interiorInfo": "3",
+            "region": 11,
+            "municipality": 300,
+            "area": 8094,
+            "alias": "Oficina",
+            "contact": "Agente de ventas",
+            "phone": "8979876576",
+            "zipCode": "11011"
+        },
+        "cf6883b0-7b4c-11ed-bb2c-4f569bbde415": {
+            "exteriorInfo": "Hidalgo 897",
+            "interiorInfo": "3",
+            "region": 11,
+            "municipality": 300,
+            "area": 8094,
+            "alias": "Oficina",
+            "contact": "Agente de ventas",
+            "phone": "8979876576",
+            "zipCode": "11011"
+        },
+        "1acfccbe-7b4d-11ed-bb2c-534a726d7731": {
+            "exteriorInfo": "Hidalgo 897",
+            "interiorInfo": "3",
+            "region": 11,
+            "municipality": 300,
+            "area": 8094,
+            "alias": "Oficina",
+            "contact": "Agente de ventas",
+            "phone": "8979876576",
+            "zipCode": "11011"
+        },
+        "57429708-7b4d-11ed-9f3e-cb461e542a19": {
+            "exteriorInfo": "Hidalgo 897",
+            "interiorInfo": "3",
+            "region": 11,
+            "municipality": 300,
+            "area": 8094,
+            "alias": "Oficina",
+            "contact": "Agente de ventas",
+            "phone": "8979876576",
+            "zipCode": "11011"
+        },
+        "7d693662-7b4d-11ed-bc5c-b7f8ace03e9b": {
+            "exteriorInfo": "Hidalgo 897",
+            "interiorInfo": "3",
+            "region": 11,
+            "municipality": 300,
+            "area": 8094,
+            "alias": "Oficina",
+            "contact": "Agente de ventas",
+            "phone": "8979876576",
+            "zipCode": "11011"
+        },
+        "a7e0946c-7b4d-11ed-bc5c-1bf0fce2895e": {
+            "exteriorInfo": "Hidalgo 897",
+            "interiorInfo": "3",
+            "region": 11,
+            "municipality": 300,
+            "area": 8094,
+            "alias": "Oficina",
+            "contact": "Agente de ventas",
+            "phone": "8979876576",
+            "zipCode": "11011"
+        },
+        "831b620a-7b4e-11ed-bb2c-1fb669fddb2e": {
+            "exteriorInfo": "Hidalgo 897",
+            "interiorInfo": "3",
+            "region": 11,
+            "municipality": 300,
+            "area": 8094,
+            "alias": "Oficina",
+            "contact": "Agente de ventas",
+            "phone": "8979876576",
+            "zipCode": "11011"
+        },
+        "d9b51db8-7b4e-11ed-926d-c7c19ef2133b": {
+            "exteriorInfo": "Hidalgo 897",
+            "interiorInfo": "3",
+            "region": 11,
+            "municipality": 300,
+            "area": 8094,
+            "alias": "Oficina",
+            "contact": "Agente de ventas",
+            "phone": "8979876576",
+            "zipCode": "11011"
+        },
+        "26d596cc-7b4f-11ed-bb2c-735b956512ca": {
+            "exteriorInfo": "Hidalgo 897",
+            "interiorInfo": "3",
+            "region": 11,
+            "municipality": 300,
+            "area": 8094,
+            "alias": "Oficina",
+            "contact": "Agente de ventas",
+            "phone": "8979876576",
+            "zipCode": "11011"
+        },
+        "8e3bc4da-7b4f-11ed-bc5c-ef137afeb93f": {
+            "exteriorInfo": "Hidalgo 897",
+            "interiorInfo": "3",
+            "region": 11,
+            "municipality": 300,
+            "area": 8094,
+            "alias": "Oficina",
+            "contact": "Agente de ventas",
+            "phone": "8979876576",
+            "zipCode": "11011"
+        },
+        "c2fe59b2-7b4f-11ed-bc5c-a310a70806fd": {
+            "exteriorInfo": "Hidalgo 897",
+            "interiorInfo": "3",
+            "region": 11,
+            "municipality": 300,
+            "area": 8094,
+            "alias": "Oficina",
+            "contact": "Agente de ventas",
+            "phone": "8979876576",
+            "zipCode": "11011"
+        },
+        "e847591c-7b4f-11ed-bb2c-3705ef58c94e": {
+            "exteriorInfo": "Hidalgo 897",
+            "interiorInfo": "3",
+            "region": 11,
+            "municipality": 300,
+            "area": 8094,
+            "alias": "Oficina",
+            "contact": "Agente de ventas",
+            "phone": "8979876576",
+            "zipCode": "11011"
+        },
+        "72e53b34-7b50-11ed-bc5c-235e1d0b6f44": {
+            "exteriorInfo": "Hidalgo 897",
+            "interiorInfo": "3",
+            "region": 11,
+            "municipality": 300,
+            "area": 8094,
+            "alias": "Oficina",
+            "contact": "Agente de ventas",
+            "phone": "8979876576",
+            "zipCode": "11011"
+        },
+        "c6f01c94-7b50-11ed-9f3e-2785a586382a": {
+            "exteriorInfo": "Hidalgo 897",
+            "interiorInfo": "3",
+            "region": 11,
+            "municipality": 300,
+            "area": 8094,
+            "alias": "Oficina",
+            "contact": "Agente de ventas",
+            "phone": "8979876576",
+            "zipCode": "11011"
+        },
+        "de425268-7b50-11ed-926d-ff5759503ea2": {
+            "exteriorInfo": "Hidalgo 897",
+            "interiorInfo": "3",
+            "region": 11,
+            "municipality": 300,
+            "area": 8094,
+            "alias": "Oficina",
+            "contact": "Agente de ventas",
+            "phone": "8979876576",
+            "zipCode": "11011"
+        },
+        "039a86b6-7b51-11ed-bb2c-df38806b103c": {
+            "exteriorInfo": "Hidalgo 897",
+            "interiorInfo": "3",
+            "region": 11,
+            "municipality": 300,
+            "area": 8094,
+            "alias": "Oficina",
+            "contact": "Agente de ventas",
+            "phone": "8979876576",
+            "zipCode": "11011"
+        },
+        "308bf9ca-7b51-11ed-bb2c-6b0a4c11d608": {
+            "exteriorInfo": "Hidalgo 897",
+            "interiorInfo": "3",
+            "region": 11,
+            "municipality": 300,
+            "area": 8094,
+            "alias": "Oficina",
+            "contact": "Agente de ventas",
+            "phone": "8979876576",
+            "zipCode": "11011"
+        },
+        "5b991210-7b51-11ed-bc5c-1fcd54257451": {
+            "exteriorInfo": "Hidalgo 897",
+            "interiorInfo": "3",
+            "region": 11,
+            "municipality": 300,
+            "area": 8094,
+            "alias": "Oficina",
+            "contact": "Agente de ventas",
+            "phone": "8979876576",
+            "zipCode": "11011"
+        },
+        "0cf42360-7b52-11ed-926d-4b7ce02d8497": {
+            "exteriorInfo": "Hidalgo 897",
+            "interiorInfo": "3",
+            "region": 11,
+            "municipality": 300,
+            "area": 8094,
+            "alias": "Oficina",
+            "contact": "Agente de ventas",
+            "phone": "8979876576",
+            "zipCode": "11011"
+        },
+        "10b8d6c4-7b54-11ed-bb2c-47395d4ec3d4": {
+            "exteriorInfo": "Hidalgo 897",
+            "interiorInfo": "3",
+            "region": 11,
+            "municipality": 300,
+            "area": 8094,
+            "alias": "Oficina",
+            "contact": "Agente de ventas",
+            "phone": "8979876576",
+            "zipCode": "11011"
+        },
+        "3d8680ac-7b54-11ed-9f3e-0fbe7cc4fcb3": {
+            "exteriorInfo": "Hidalgo 897",
+            "interiorInfo": "3",
+            "region": 11,
+            "municipality": 300,
+            "area": 8094,
+            "alias": "Oficina",
+            "contact": "Agente de ventas",
+            "phone": "8979876576",
+            "zipCode": "11011"
+        },
+        "6b10e454-7b54-11ed-bb2c-63fa824469df": {
+            "exteriorInfo": "Hidalgo 897",
+            "interiorInfo": "3",
+            "region": 11,
+            "municipality": 300,
+            "area": 8094,
+            "alias": "Oficina",
+            "contact": "Agente de ventas",
+            "phone": "8979876576",
+            "zipCode": "11011"
+        },
+        "99ad3c86-7b54-11ed-926d-230d0754df4e": {
+            "exteriorInfo": "Hidalgo 897",
+            "interiorInfo": "3",
+            "region": 11,
+            "municipality": 300,
+            "area": 8094,
+            "alias": "Oficina",
+            "contact": "Agente de ventas",
+            "phone": "8979876576",
+            "zipCode": "11011"
+        },
+        "4aa75152-7b55-11ed-9f3e-d328e6cd39e5": {
+            "exteriorInfo": "Hidalgo 897",
+            "interiorInfo": "3",
+            "region": 11,
+            "municipality": 300,
+            "area": 8094,
+            "alias": "Oficina",
+            "contact": "Agente de ventas",
+            "phone": "8979876576",
+            "zipCode": "11011"
+        },
+        "67f607b2-7b55-11ed-bb2c-6fa0205911a9": {
+            "exteriorInfo": "Hidalgo 897",
+            "interiorInfo": "3",
+            "region": 11,
+            "municipality": 300,
+            "area": 8094,
+            "alias": "Oficina",
+            "contact": "Agente de ventas",
+            "phone": "8979876576",
+            "zipCode": "11011"
+        },
+        "7ec1ff32-7b55-11ed-9f3e-c3bea1b05255": {
+            "exteriorInfo": "Hidalgo 897",
+            "interiorInfo": "3",
+            "region": 11,
+            "municipality": 300,
+            "area": 8094,
+            "alias": "Oficina",
+            "contact": "Agente de ventas",
+            "phone": "8979876576",
+            "zipCode": "11011"
+        },
+        "4c70e4b6-7b56-11ed-bb2c-b375a5e345ff": {
+            "exteriorInfo": "Hidalgo 897",
+            "interiorInfo": "3",
+            "region": 11,
+            "municipality": 300,
+            "area": 8094,
+            "alias": "Oficina",
+            "contact": "Agente de ventas",
+            "phone": "8979876576",
+            "zipCode": "11011"
+        },
+        "496be7d8-7b57-11ed-bb2c-8f739cf43d45": {
+            "exteriorInfo": "Hidalgo 897",
+            "interiorInfo": "3",
+            "region": 11,
+            "municipality": 300,
+            "area": 8094,
+            "alias": "Oficina",
+            "contact": "Agente de ventas",
+            "phone": "8979876576",
+            "zipCode": "11011"
+        },
+        "8e82a46a-7b57-11ed-9f3e-237a6aae7537": {
+            "exteriorInfo": "Hidalgo 897",
+            "interiorInfo": "3",
+            "region": 11,
+            "municipality": 300,
+            "area": 8094,
+            "alias": "Oficina",
+            "contact": "Agente de ventas",
+            "phone": "8979876576",
+            "zipCode": "11011"
+        },
+        "3f2b9ec0-7b58-11ed-bb2c-a73304b16972": {
+            "exteriorInfo": "Hidalgo 897",
+            "interiorInfo": "3",
+            "region": 11,
+            "municipality": 300,
+            "area": 8094,
+            "alias": "Oficina",
+            "contact": "Agente de ventas",
+            "phone": "8979876576",
+            "zipCode": "11011"
+        },
+        "e5667af8-7b58-11ed-9f3e-e7c2e2a729c8": {
+            "exteriorInfo": "Hidalgo 897",
+            "interiorInfo": "3",
+            "region": 11,
+            "municipality": 300,
+            "area": 8094,
+            "alias": "Oficina",
+            "contact": "Agente de ventas",
+            "phone": "8979876576",
+            "zipCode": "11011"
+        },
+        "0738382e-7b59-11ed-bc5c-4b35853cfccc": {
+            "exteriorInfo": "Hidalgo 897",
+            "interiorInfo": "3",
+            "region": 11,
+            "municipality": 300,
+            "area": 8094,
+            "alias": "Oficina",
+            "contact": "Agente de ventas",
+            "phone": "8979876576",
+            "zipCode": "11011"
+        },
+        "58183794-7b59-11ed-bc5c-670d909dcc50": {
+            "exteriorInfo": "Hidalgo 897",
+            "interiorInfo": "3",
+            "region": 11,
+            "municipality": 300,
+            "area": 8094,
+            "alias": "Oficina",
+            "contact": "Agente de ventas",
+            "phone": "8979876576",
+            "zipCode": "11011"
+        },
+        "aa98f87c-7b5a-11ed-bc5c-6f9083b0a7be": {
+            "exteriorInfo": "Hidalgo 897",
+            "interiorInfo": "3",
+            "region": 11,
+            "municipality": 300,
+            "area": 8094,
+            "alias": "Oficina",
+            "contact": "Agente de ventas",
+            "phone": "8979876576",
+            "zipCode": "11011"
+        },
+        "2f3fd726-7b5b-11ed-bb2c-db024d6b125c": {
+            "exteriorInfo": "Hidalgo 897",
+            "interiorInfo": "3",
+            "region": 11,
+            "municipality": 300,
+            "area": 8094,
+            "alias": "Oficina",
+            "contact": "Agente de ventas",
+            "phone": "8979876576",
+            "zipCode": "11011"
+        },
+        "2a613ffe-7b5d-11ed-9f3e-2beaa98615cb": {
+            "exteriorInfo": "Hidalgo 897",
+            "interiorInfo": "3",
+            "region": 11,
+            "municipality": 300,
+            "area": 8094,
+            "alias": "Oficina",
+            "contact": "Agente de ventas",
+            "phone": "8979876576",
+            "zipCode": "11011"
+        },
+        "57976b1a-7b5d-11ed-926d-dbe6dc075ace": {
+            "exteriorInfo": "Hidalgo 897",
+            "interiorInfo": "167",
+            "region": 11,
+            "municipality": 300,
+            "area": 8094,
+            "alias": "Oficina",
+            "contact": "Kevin Kub",
+            "phone": "8979876576",
+            "zipCode": "11011"
+        },
+        "b68cb600-7b5f-11ed-bc5c-879dea59c0c2": {
+            "exteriorInfo": "Hidalgo 897",
+            "interiorInfo": "3",
+            "region": 11,
+            "municipality": 300,
+            "area": 8094,
+            "alias": "Oficina",
+            "contact": "Agente de ventas",
+            "phone": "8979876576",
+            "zipCode": "11011"
+        }
+    }
+}
+Status response: 200
+Tiempo respuesta: 307
+Request method:	POST
+Request URI:	https://webapi.segundamano.mx/nga/api/v1.1/private/accounts?lang=es
+Proxy:			<none>
+Request params:	<none>
+Query params:	lang=es
+Form params:	<none>
+Path params:	<none>
+Headers:		Authorization=Basic cHJ1ZWJhc19hcGkxOUBtYWlsaW5hdG9yLmNvbTphYmNkZTEyMzQ1
+				Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "account": {
+        "email": "pruebas_api19@mailinator.com"
+    }
+}
+{
+    "access_token": "mc1x8b494ce62e6fbb06837140f1c0cfb654e97df5af_v2",
+    "account": {
+        "account_id": "/private/accounts/12788461",
+        "can_publish": true,
+        "email": "pruebas_api19@mailinator.com",
+        "email_verified": true,
+        "locations": [
+            
+        ],
+        "name": "Jamey Orn",
+        "phone": "(016) 639-1986",
+        "phone_hidden": true,
+        "professional": true,
+        "rfc": "XAXX010101000",
+        "uuid": "ef3ed9d3-97b6-4e38-899d-5bfb8ba310fc"
+    },
+    "ad_events": {
+        "24h": {
+            "calls": 0,
+            "mails": 0,
+            "phone_view_leads": 0,
+            "phone_views": 0,
+            "views": 0
+        },
+        "7d": {
+            "calls": 0,
+            "mails": 0,
+            "phone_view_leads": 0,
+            "phone_views": 0,
+            "views": 0
+        },
+        "total": {
+            "calls": 0,
+            "mails": 0,
+            "phone_view_leads": 0,
+            "phone_views": 0,
+            "views": 0
+        }
+    },
+    "token_type": "tag:scmcoord.com,2013:api"
+}
+Response del token: {
+    "access_token": "mc1x8b494ce62e6fbb06837140f1c0cfb654e97df5af_v2",
+    "account": {
+        "account_id": "/private/accounts/12788461",
+        "can_publish": true,
+        "email": "pruebas_api19@mailinator.com",
+        "email_verified": true,
+        "locations": [
+            
+        ],
+        "name": "Jamey Orn",
+        "phone": "(016) 639-1986",
+        "phone_hidden": true,
+        "professional": true,
+        "rfc": "XAXX010101000",
+        "uuid": "ef3ed9d3-97b6-4e38-899d-5bfb8ba310fc"
+    },
+    "ad_events": {
+        "24h": {
+            "calls": 0,
+            "mails": 0,
+            "phone_view_leads": 0,
+            "phone_views": 0,
+            "views": 0
+        },
+        "7d": {
+            "calls": 0,
+            "mails": 0,
+            "phone_view_leads": 0,
+            "phone_views": 0,
+            "views": 0
+        },
+        "total": {
+            "calls": 0,
+            "mails": 0,
+            "phone_view_leads": 0,
+            "phone_views": 0,
+            "views": 0
+        }
+    },
+    "token_type": "tag:scmcoord.com,2013:api"
+}
+Token:mc1x8b494ce62e6fbb06837140f1c0cfb654e97df5af_v2
+Account ID: /private/accounts/12788461
+UUID: ef3ed9d3-97b6-4e38-899d-5bfb8ba310fc
+Request method:	PUT
+Request URI:	https://webapi.segundamano.mx/addresses/v1/modify/b68cb600-7b5f-11ed-bc5c-879dea59c0c2
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	contact=Jewell Mraz Jr.
+				phone=8979876576
+				rfc=XAXX010101000
+				zipCode=11011
+				exteriorInfo=Hidalgo 897
+				interiorInfo=414
+				region=11
+				municipality=300
+				area=8094
+				alias=Oficina
+Path params:	<none>
+Headers:		Accept=application/json, text/plain, */*
+				Authorization=Basic ZWYzZWQ5ZDMtOTdiNi00ZTM4LTg5OWQtNWJmYjhiYTMxMGZjOm1jMXg4YjQ5NGNlNjJlNmZiYjA2ODM3MTQwZjFjMGNmYjY1NGU5N2RmNWFmX3Yy
+				Content-Type=application/x-www-form-urlencoded; charset=ISO-8859-1
+Cookies:		<none>
+Multiparts:		<none>
+Body:			<none>
+{
+    "message": "b68cb600-7b5f-11ed-bc5c-879dea59c0c2 modified correctly"
+}
+Body bonito:{
+    "message": "b68cb600-7b5f-11ed-bc5c-879dea59c0c2 modified correctly"
+}
+status response: 200
+Tiempo respuesta: 342
+Request method:	POST
+Request URI:	https://webapi.segundamano.mx/nga/api/v1.1/private/accounts?lang=es
+Proxy:			<none>
+Request params:	<none>
+Query params:	lang=es
+Form params:	<none>
+Path params:	<none>
+Headers:		Authorization=Basic cHJ1ZWJhc19hcGkxOUBtYWlsaW5hdG9yLmNvbTphYmNkZTEyMzQ1
+				Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "account": {
+        "email": "pruebas_api19@mailinator.com"
+    }
+}
+{
+    "access_token": "mc1x3be23a81802762dec19ef2d6825a3777b78970ab_v2",
+    "account": {
+        "account_id": "/private/accounts/12788461",
+        "can_publish": true,
+        "email": "pruebas_api19@mailinator.com",
+        "email_verified": true,
+        "locations": [
+            
+        ],
+        "name": "Jamey Orn",
+        "phone": "(016) 639-1986",
+        "phone_hidden": true,
+        "professional": true,
+        "rfc": "XAXX010101000",
+        "uuid": "ef3ed9d3-97b6-4e38-899d-5bfb8ba310fc"
+    },
+    "ad_events": {
+        "24h": {
+            "calls": 0,
+            "mails": 0,
+            "phone_view_leads": 0,
+            "phone_views": 0,
+            "views": 0
+        },
+        "7d": {
+            "calls": 0,
+            "mails": 0,
+            "phone_view_leads": 0,
+            "phone_views": 0,
+            "views": 0
+        },
+        "total": {
+            "calls": 0,
+            "mails": 0,
+            "phone_view_leads": 0,
+            "phone_views": 0,
+            "views": 0
+        }
+    },
+    "token_type": "tag:scmcoord.com,2013:api"
+}
+Response del token: {
+    "access_token": "mc1x3be23a81802762dec19ef2d6825a3777b78970ab_v2",
+    "account": {
+        "account_id": "/private/accounts/12788461",
+        "can_publish": true,
+        "email": "pruebas_api19@mailinator.com",
+        "email_verified": true,
+        "locations": [
+            
+        ],
+        "name": "Jamey Orn",
+        "phone": "(016) 639-1986",
+        "phone_hidden": true,
+        "professional": true,
+        "rfc": "XAXX010101000",
+        "uuid": "ef3ed9d3-97b6-4e38-899d-5bfb8ba310fc"
+    },
+    "ad_events": {
+        "24h": {
+            "calls": 0,
+            "mails": 0,
+            "phone_view_leads": 0,
+            "phone_views": 0,
+            "views": 0
+        },
+        "7d": {
+            "calls": 0,
+            "mails": 0,
+            "phone_view_leads": 0,
+            "phone_views": 0,
+            "views": 0
+        },
+        "total": {
+            "calls": 0,
+            "mails": 0,
+            "phone_view_leads": 0,
+            "phone_views": 0,
+            "views": 0
+        }
+    },
+    "token_type": "tag:scmcoord.com,2013:api"
+}
+Token:mc1x3be23a81802762dec19ef2d6825a3777b78970ab_v2
+Account ID: /private/accounts/12788461
+UUID: ef3ed9d3-97b6-4e38-899d-5bfb8ba310fc
+Request method:	DELETE
+Request URI:	https://webapi.segundamano.mx/addresses/v1/delete/b68cb600-7b5f-11ed-bc5c-879dea59c0c2
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		Accept=*/*
+				Authorization=Basic ZWYzZWQ5ZDMtOTdiNi00ZTM4LTg5OWQtNWJmYjhiYTMxMGZjOm1jMXgzYmUyM2E4MTgwMjc2MmRlYzE5ZWYyZDY4MjVhMzc3N2I3ODk3MGFiX3Yy
+				Content-Type=application/x-www-form-urlencoded; charset=ISO-8859-1
+Cookies:		<none>
+Multiparts:		<none>
+Body:			<none>
+{
+    "message": "b68cb600-7b5f-11ed-bc5c-879dea59c0c2 deleted correctly"
+}
+status response: 200
+Tiempo respuesta: 410
+Request method:	POST
+Request URI:	https://webapi.segundamano.mx/nga/api/v1.1/private/accounts?lang=es
+Proxy:			<none>
+Request params:	<none>
+Query params:	lang=es
+Form params:	<none>
+Path params:	<none>
+Headers:		Authorization=Basic cHJ1ZWJhc19hcGkxOUBtYWlsaW5hdG9yLmNvbTphYmNkZTEyMzQ1
+				Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "account": {
+        "email": "pruebas_api19@mailinator.com"
+    }
+}
+{
+    "access_token": "mc1x3896d79ef0803c554aa737775ba14b6459ef5e71_v2",
+    "account": {
+        "account_id": "/private/accounts/12788461",
+        "can_publish": true,
+        "email": "pruebas_api19@mailinator.com",
+        "email_verified": true,
+        "locations": [
+            
+        ],
+        "name": "Jamey Orn",
+        "phone": "(016) 639-1986",
+        "phone_hidden": true,
+        "professional": true,
+        "rfc": "XAXX010101000",
+        "uuid": "ef3ed9d3-97b6-4e38-899d-5bfb8ba310fc"
+    },
+    "ad_events": {
+        "24h": {
+            "calls": 0,
+            "mails": 0,
+            "phone_view_leads": 0,
+            "phone_views": 0,
+            "views": 0
+        },
+        "7d": {
+            "calls": 0,
+            "mails": 0,
+            "phone_view_leads": 0,
+            "phone_views": 0,
+            "views": 0
+        },
+        "total": {
+            "calls": 0,
+            "mails": 0,
+            "phone_view_leads": 0,
+            "phone_views": 0,
+            "views": 0
+        }
+    },
+    "token_type": "tag:scmcoord.com,2013:api"
+}
+Response del token: {
+    "access_token": "mc1x3896d79ef0803c554aa737775ba14b6459ef5e71_v2",
+    "account": {
+        "account_id": "/private/accounts/12788461",
+        "can_publish": true,
+        "email": "pruebas_api19@mailinator.com",
+        "email_verified": true,
+        "locations": [
+            
+        ],
+        "name": "Jamey Orn",
+        "phone": "(016) 639-1986",
+        "phone_hidden": true,
+        "professional": true,
+        "rfc": "XAXX010101000",
+        "uuid": "ef3ed9d3-97b6-4e38-899d-5bfb8ba310fc"
+    },
+    "ad_events": {
+        "24h": {
+            "calls": 0,
+            "mails": 0,
+            "phone_view_leads": 0,
+            "phone_views": 0,
+            "views": 0
+        },
+        "7d": {
+            "calls": 0,
+            "mails": 0,
+            "phone_view_leads": 0,
+            "phone_views": 0,
+            "views": 0
+        },
+        "total": {
+            "calls": 0,
+            "mails": 0,
+            "phone_view_leads": 0,
+            "phone_views": 0,
+            "views": 0
+        }
+    },
+    "token_type": "tag:scmcoord.com,2013:api"
+}
+Token:mc1x3896d79ef0803c554aa737775ba14b6459ef5e71_v2
+Account ID: /private/accounts/12788461
+UUID: ef3ed9d3-97b6-4e38-899d-5bfb8ba310fc
+Request method:	DELETE
+Request URI:	https://webapi.segundamano.mx/nga/api/v1/private/accounts/12788461/klfst/75106720
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		Accept=*/*
+				Authorization=tag:scmcoord.com,2013:api mc1x3896d79ef0803c554aa737775ba14b6459ef5e71_v2
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "delete_reason": {
+        "code": "2"
+    }
+}
+{
+    "error": {
+        "causes": [
+            {
+                "code": "ERROR_AD_ALREADY_DELETED",
+                "label": "ERROR_AD_ALREADY_DELETED",
+                "object": "query_string"
+            }
+        ],
+        "code": "FORBIDDEN"
+    }
+}
+status response: 403
+Tiempo respuesta: 534
+AQUI ESTA EL RESPONSE: {
+    "error": {
+        "causes": [
+            {
+                "code": "ERROR_AD_ALREADY_DELETED",
+                "label": "ERROR_AD_ALREADY_DELETED",
+                "object": "query_string"
+            }
+        ],
+        "code": "FORBIDDEN"
+    }
+}
+Request method:	POST
+Request URI:	https://webapi.segundamano.mx/urls/v1/public/ad-view?lang=es
+Proxy:			<none>
+Request params:	<none>
+Query params:	lang=es
+Form params:	<none>
+Path params:	<none>
+Headers:		Accept=application/json,text/plain,*/*
+				Content-Type=text/plain; charset=ISO-8859-1
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "ids": [
+        "75106720"
+    ]
+}
+{
+    "data": {
+        "urls": {
+            
+        },
+        "errors": {
+            "NotFound": [
+                "75106720"
+            ]
+        }
+    }
+}
+Response: {
+    "data": {
+        "urls": {
+            
+        },
+        "errors": {
+            "NotFound": [
+                "75106720"
+            ]
+        }
+    }
+}
+status response: 200
+Tiempo respuesta: 160
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
